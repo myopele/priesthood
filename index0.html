@@ -1,0 +1,916 @@
+<!-- =========================================================
+SGI / Khemet–Ifá — Tree of Life (Interactive Teaching Page)
+File: sgi-khemet-ifa-tree-16week.html
+
+SETUP (same repo/folder):
+- SwamiG.gif                 (SGI logo)
+- KhemticIfaTreeOfLife.png   (your poster image)
+
+WHAT YOU GET:
+- SGI dark styling (purple/gold glow)
+- Clickable SGI logo (set LINK in one place)
+- Poster embedded + tap/click to full-screen view
+- 16-week learning modules with checkboxes + notes saved locally (localStorage)
+========================================================= -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>SGI — Khemet–Ifá Tree of Life | 16-Week Learning Modules</title>
+  <meta name="description" content="Interactive SGI teaching page: Khemet–Ifá Tree of Life correspondences with a 16-week learning track and saved progress." />
+
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --panel:#11121a;
+      --ink:#f2f3f7;
+      --muted:#b9bcc8;
+      --line:rgba(255,255,255,.10);
+      --gold:#d7b35d;
+      --gold2:#f2d58a;
+      --amethyst:#8a5cff;
+      --rose:#ff5cc8;
+
+      --r:18px;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --shadow2: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font: 15px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(138,92,255,.22), transparent 60%),
+        radial-gradient(900px 520px at 85% 25%, rgba(215,179,93,.18), transparent 55%),
+        radial-gradient(900px 520px at 50% 100%, rgba(255,92,200,.10), transparent 60%),
+        var(--bg);
+      color:var(--ink);
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:1100px; margin:0 auto; padding:22px 16px 64px; }
+
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,11,15,.92), rgba(11,11,15,.55));
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:10px 16px;
+      display:flex; align-items:center; gap:14px; justify-content:space-between;
+    }
+
+    .brandLink{
+      display:flex; align-items:center; gap:10px;
+      min-width: 240px;
+      border-radius: 16px;
+      padding:6px 8px;
+      border:1px solid transparent;
+      transition: .18s ease;
+    }
+    .brandLink:hover{
+      border-color: rgba(215,179,93,.40);
+      background: rgba(255,255,255,.03);
+      transform: translateY(-1px);
+    }
+    .brandLink:focus-visible{
+      outline: 2px solid rgba(138,92,255,.65);
+      outline-offset: 3px;
+    }
+    .brandLink img{
+      width:34px; height:34px;
+      object-fit:contain;
+      border-radius:10px;
+      background:rgba(255,255,255,.06);
+      padding:6px;
+      border:1px solid var(--line);
+      box-shadow: 0 0 18px rgba(215,179,93,.14);
+    }
+    .brandLink .t1{ font-weight:900; letter-spacing:.2px; }
+    .brandLink .t2{ font-size:12px; color:var(--muted); margin-top:-2px; }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end; }
+    .chip{
+      padding:8px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size:12px;
+      transition: .18s ease;
+      user-select:none;
+      cursor:pointer;
+    }
+    .chip:hover{ transform: translateY(-1px); border-color: rgba(215,179,93,.45); color:var(--ink); }
+    .chip.primary{
+      color: var(--ink);
+      border-color: rgba(138,92,255,.45);
+      background: linear-gradient(90deg, rgba(138,92,255,.18), rgba(215,179,93,.10));
+      cursor:pointer;
+    }
+
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      border-radius: calc(var(--r) + 6px);
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:0;
+    }
+    @media (max-width: 900px){
+      .heroGrid{ grid-template-columns: 1fr; }
+    }
+
+    .heroLeft{ padding:20px 18px 18px; }
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      color: var(--muted);
+      font-size:12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:6px 10px;
+      background: rgba(255,255,255,.03);
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--gold2), var(--gold));
+      box-shadow: 0 0 14px rgba(215,179,93,.45);
+    }
+    h1{
+      margin:12px 0 8px;
+      font-size: 28px;
+      letter-spacing:.2px;
+      line-height:1.15;
+    }
+    .sub{
+      color: var(--muted);
+      margin:0 0 14px;
+      max-width: 65ch;
+    }
+    .heroBtns{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--ink);
+      font-weight:750;
+      font-size:13px;
+      transition:.18s ease;
+      box-shadow: var(--shadow2);
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(215,179,93,.45); }
+    .btn.gold{
+      border-color: rgba(215,179,93,.55);
+      background: linear-gradient(180deg, rgba(215,179,93,.22), rgba(255,255,255,.03));
+    }
+    .btn.purple{
+      border-color: rgba(138,92,255,.55);
+      background: linear-gradient(180deg, rgba(138,92,255,.22), rgba(255,255,255,.03));
+    }
+
+    .heroRight{
+      border-left:1px solid var(--line);
+      background:
+        radial-gradient(520px 320px at 60% 30%, rgba(215,179,93,.15), transparent 60%),
+        radial-gradient(520px 320px at 30% 75%, rgba(138,92,255,.16), transparent 62%),
+        rgba(0,0,0,.18);
+      padding:14px;
+    }
+    @media (max-width: 900px){
+      .heroRight{ border-left:none; border-top:1px solid var(--line); }
+    }
+
+    .poster{
+      border:1px solid var(--line);
+      border-radius: 18px;
+      overflow:hidden;
+      background: rgba(255,255,255,.03);
+      position:relative;
+    }
+    .poster img{
+      width:100%;
+      height:auto;
+      display:block;
+      opacity:.97;
+      cursor:pointer;
+    }
+    .posterNote{
+      position:absolute; inset:auto 10px 10px 10px;
+      padding:8px 10px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(11,11,15,.72);
+      color: var(--muted);
+      font-size:12px;
+      backdrop-filter: blur(8px);
+      cursor:pointer;
+    }
+    .posterNote:hover{ border-color: rgba(215,179,93,.45); color: var(--ink); }
+
+    /* Sections */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+    .card{
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+    .card .hd{
+      padding:14px 14px 10px;
+      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+      border-bottom:1px solid var(--line);
+      background: rgba(0,0,0,.12);
+    }
+    .card h2{
+      margin:0;
+      font-size:15px;
+      letter-spacing:.2px;
+    }
+    .card .hint{
+      margin:0;
+      color: var(--muted);
+      font-size:12px;
+    }
+    .card .bd{ padding:14px; }
+
+    /* Node list */
+    .nodes{ display:grid; grid-template-columns: 1fr; gap:10px; }
+    .node{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      padding:12px 12px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      cursor:pointer;
+      transition:.16s ease;
+    }
+    .node:hover{ transform: translateY(-1px); border-color: rgba(215,179,93,.45); }
+    .node .name{ font-weight:900; }
+    .node .map{ color: var(--muted); font-size:12px; margin-top:2px; }
+    .node .tag{
+      font-size:11px;
+      padding:6px 8px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      color: var(--muted);
+      background: rgba(0,0,0,.12);
+      white-space:nowrap;
+    }
+
+    /* Modal */
+    .modalBack{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.60);
+      display:none;
+      align-items:center; justify-content:center;
+      padding:16px;
+      z-index:999;
+    }
+    .modal{
+      width:min(860px, 100%);
+      border-radius: 22px;
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(17,18,26,.98), rgba(10,10,14,.98));
+      box-shadow: 0 30px 110px rgba(0,0,0,.70);
+      overflow:hidden;
+    }
+    .modalTop{
+      padding:14px 14px 10px;
+      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+    }
+    .modalTop .title{
+      margin:0;
+      font-size:16px;
+      font-weight:950;
+      letter-spacing:.2px;
+    }
+    .modalTop .subt{ margin:3px 0 0; color:var(--muted); font-size:12px; }
+    .x{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color:var(--ink);
+      border-radius: 12px;
+      padding:8px 10px;
+      cursor:pointer;
+      font-weight:900;
+    }
+    .modalBody{ padding:14px; display:grid; grid-template-columns: 1.1fr .9fr; gap:12px; }
+    @media (max-width: 900px){ .modalBody{ grid-template-columns:1fr; } }
+    .box{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      background: rgba(255,255,255,.03);
+      padding:12px;
+    }
+    .box h3{ margin:0 0 6px; font-size:13px; }
+    .box p{ margin:0; color:var(--muted); }
+    .pillRow{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .pill{
+      font-size:12px;
+      padding:7px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.12);
+      color: var(--muted);
+    }
+
+    /* Course */
+    details{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      padding:10px 12px;
+    }
+    details + details{ margin-top:10px; }
+    summary{
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      list-style:none;
+      font-weight:950;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .wkMeta{ color:var(--muted); font-weight:650; font-size:12px; }
+    .wkBody{ margin-top:10px; color:var(--muted); }
+    .checkRow{ display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 6px; }
+    label.chk{
+      display:flex; align-items:center; gap:8px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
+      border-radius: 12px;
+      padding:8px 10px;
+      color: var(--ink);
+      font-size:13px;
+      cursor:pointer;
+      user-select:none;
+    }
+    label.chk input{ accent-color: var(--gold); width:16px; height:16px; }
+    textarea{
+      width:100%;
+      min-height: 80px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      color: var(--ink);
+      padding:10px 10px;
+      outline:none;
+      resize: vertical;
+    }
+    .small{ font-size:12px; color:var(--muted); margin-top:8px; }
+
+    .footer{
+      margin-top:18px;
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      background: rgba(255,255,255,.03);
+      padding:14px;
+      color: var(--muted);
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+    }
+
+    @media print{
+      .topbar, .heroBtns, .chips, .posterNote, .printHide { display:none !important; }
+      body{ background:white; color:black; }
+      .card, .hero{ box-shadow:none; }
+      .card, .hero, details{ border:1px solid #bbb; }
+      .wkBody, .hint, .sub, .small, .footer{ color:#333 !important; }
+      textarea{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOPBAR -->
+  <div class="topbar printHide">
+    <div class="inner">
+      <!-- CLICKABLE LOGO / BRAND -->
+      <!-- Set your SGI click link here -->
+      <a class="brandLink" id="sgiLogoLink" href="index.html" title="Back to SGI Home">
+        <img src="SwamiG.gif" alt="SGI logo" onerror="this.style.display='none'">
+        <div>
+          <div class="t1">SwamiG Institute</div>
+          <div class="t2">Khemet–Ifá Tree of Life • 16-Week Track</div>
+        </div>
+      </a>
+
+      <div class="chips">
+        <a class="chip primary" href="#nodes">Tree Nodes</a>
+        <a class="chip" href="#course">16 Weeks</a>
+        <a class="chip" href="#summary">Printable Summary</a>
+        <button class="chip" onclick="window.print()">Print</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="heroGrid">
+        <div class="heroLeft">
+          <div class="kicker"><span class="dot"></span> Source → Mind → Action → Heart → Gate → Creation → Earth → Ancestors</div>
+          <h1>Khemet–Ifá Tree of Life</h1>
+          <p class="sub">
+            This SGI teaching page maps Khemetian principles (Neteru) to Yoruba/Ifá correspondences and trains
+            the student to read the system as a living “Temple is the Body” model.
+          </p>
+          <div class="heroBtns printHide">
+            <a class="btn gold" href="#course">Start Week 1</a>
+            <a class="btn purple" href="#nodes">Open Tree Nodes</a>
+            <button class="btn" onclick="openPoster()">View Poster Fullscreen</button>
+          </div>
+          <p class="small printHide">
+            Progress (checks + notes) saves on this device only (localStorage).
+          </p>
+        </div>
+
+        <div class="heroRight">
+          <div class="poster" title="Tap to view full poster">
+            <img src="KhemticIfaTreeOfLife.png" alt="Khemet–Ifá Tree of Life poster"
+                 onclick="openPoster()"
+                 onerror="this.style.display='none'; document.getElementById('posterFallback').style.display='block';" />
+            <div id="posterFallback" style="display:none; padding:14px; color:var(--muted);">
+              <b>Poster image not found.</b><br>
+              Put <b>KhemticIfaTreeOfLife.png</b> in the same folder as this HTML file.
+            </div>
+            <div class="posterNote" onclick="openPoster()">Tap to view full poster</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN GRID -->
+    <section class="grid">
+      <!-- Nodes -->
+      <div class="card" id="nodes">
+        <div class="hd">
+          <div>
+            <h2>Tree Nodes (Click to Teach)</h2>
+            <p class="hint">Fast teaching notes + student prompts per node.</p>
+          </div>
+          <div class="hint">9 nodes + lineage triad</div>
+        </div>
+        <div class="bd">
+          <div class="nodes">
+            <div class="node" onclick="openNode('Amen','Obatala','Source / Supreme Consciousness','Purity, stillness, creation authority. Establish the highest reference point before any divination or action.',['Stillness practice','Purity & ethics','Aṣẹ as creative word'],['Where is your mind when nothing is happening?','What does “purity” require of your speech this week?'])">
+              <div><div class="name">Amen</div><div class="map">(Obatala)</div></div>
+              <div class="tag">SOURCE</div>
+            </div>
+
+            <div class="node" onclick="openNode('Tehuti','Orunmila','Right Brain / Wisdom / Divination','Witness of destiny, sacred intelligence, interpretation, memory of heaven. Divination as a disciplined language.',['Witness of fate','Symbol literacy','Truth-telling'],['What is the difference between knowing and guessing?','What did the sign teach you that logic missed?'])">
+              <div><div class="name">Tehuti</div><div class="map">(Orunmila)</div></div>
+              <div class="tag">WISDOM</div>
+            </div>
+
+            <div class="node" onclick="openNode('Sekert','Babaluaye','Left Brain / Transformation / Healing','Purification, death–rebirth, healing intelligence, shadow integration. Strength through cleansing.',['Purification','Healing discipline','Death–rebirth'],['What must end so you can be healed?','Where are you avoiding the cleanse?'])">
+              <div><div class="name">Sekert</div><div class="map">(Babaluaye)</div></div>
+              <div class="tag">TRANSFORM</div>
+            </div>
+
+            <div class="node" onclick="openNode('Herukhuti','Ogun','Shoulders/Arms / Action & Power','Tools, iron, technology, execution, discipline. Power without wisdom becomes danger.',['Discipline','Tool mastery','Warrior ethics'],['What tool do you need to sharpen this week?','Where has power outrun your ethics?'])">
+              <div><div class="name">Herukhuti</div><div class="map">(Ogun)</div></div>
+              <div class="tag">ACTION</div>
+            </div>
+
+            <div class="node" onclick="openNode('Ma’at','Orun','Order / Balance / Cosmic Law','Alignment with truth, right measure, harmony, and the law of consequences. The scale in the heart.',['Order & balance','Truth & accountability','Right measure'],['What is out of balance in your daily life?','Where must you speak truth even if it costs?'])">
+              <div><div class="name">Ma’at</div><div class="map">(Orun)</div></div>
+              <div class="tag">LAW</div>
+            </div>
+
+            <div class="node" onclick="openNode('Heru','Shango','Center / Authority & Manifestation','Divine authority made visible: kingship, justice, thunder, courage. Integrates wisdom + power + law.',['Authority','Justice','Courage'],['What would you do if you were not afraid?','Where must you deliver justice in your own house?'])">
+              <div><div class="name">Heru</div><div class="map">(Shango)</div></div>
+              <div class="tag">CENTER</div>
+            </div>
+
+            <div class="node" onclick="openNode('Sebek','Eshu','Gateway / Crossroads','Messenger force: language, openings, choice, destiny routes. No movement without the gate.',['Crossroads','Communication','Choice'],['Which road keeps repeating in your life?','What message have you been refusing to deliver?'])">
+              <div><div class="name">Sebek</div><div class="map">(Eshu)</div></div>
+              <div class="tag">GATE</div>
+            </div>
+
+            <div class="node" onclick="openNode('Auset','Yemaya','Creation / Mother Waters','Nurturing intelligence: protection, origin waters, compassion, emotional grounding. Holds the system together.',['Nurture','Protection','Emotional truth'],['What are you responsible for caring for?','Where is your heart asking for mercy?'])">
+              <div><div class="name">Auset</div><div class="map">(Yemaya)</div></div>
+              <div class="tag">MOTHER</div>
+            </div>
+
+            <div class="node" onclick="openNode('Geb','Ochosi','Earth / Precision / Manifestation','Grounded intelligence: tracking, accuracy, restraint, right aim. Destiny becomes practical.',['Precision','Tracking','Grounding'],['What are you aiming at—exactly?','Where must you slow down to become accurate?'])">
+              <div><div class="name">Geb</div><div class="map">(Ochosi)</div></div>
+              <div class="tag">EARTH</div>
+            </div>
+
+            <div class="node" onclick="openNode('Lineage Triad','Iyami • Oya • Egungun','Ancestors / Lineage / Spirit','Foundational forces beneath the tree: the Mothers (Iyami), transformation winds (Oya), ancestral continuity (Egungun).',['Lineage protocol','Ancestral remembrance','Transformation'],['What do your ancestors require of you?','What pattern in your bloodline are you here to heal?'])">
+              <div><div class="name">Nekhbet • Wadjet • Sheps</div><div class="map">(Iyami • Oya • Egungun)</div></div>
+              <div class="tag">LINEAGE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course -->
+      <div class="card" id="course">
+        <div class="hd">
+          <div>
+            <h2>16-Week Learning Modules</h2>
+            <p class="hint">Check off each week as completed. Add your notes.</p>
+          </div>
+          <div class="hint"><span id="pct">0%</span> complete</div>
+        </div>
+        <div class="bd" id="courseList"></div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="card" id="summary" style="margin-top:14px;">
+      <div class="hd">
+        <div>
+          <h2>Printable Summary</h2>
+          <p class="hint">Use as your class handout or end-of-course review.</p>
+        </div>
+        <div class="hint">SGI • Practitioner Track</div>
+      </div>
+      <div class="bd">
+        <div class="box">
+          <h3>Course Outcome</h3>
+          <p>
+            Students demonstrate competence in: (1) correspondences, (2) ethical alignment, (3) disciplined interpretation,
+            (4) body-temple mapping, and (5) lineage protocol and integration.
+          </p>
+          <div class="pillRow">
+            <div class="pill">Source → Amen/Obatala</div>
+            <div class="pill">Wisdom → Tehuti/Orunmila</div>
+            <div class="pill">Transformation → Sekert/Babaluaye</div>
+            <div class="pill">Action → Herukhuti/Ogun</div>
+            <div class="pill">Law → Ma’at/Orun</div>
+            <div class="pill">Authority → Heru/Shango</div>
+            <div class="pill">Gate → Sebek/Eshu</div>
+            <div class="pill">Mother → Auset/Yemaya</div>
+            <div class="pill">Earth → Geb/Ochosi</div>
+            <div class="pill">Lineage → Iyami/Oya/Egungun</div>
+          </div>
+        </div>
+
+        <div class="box" style="margin-top:12px;">
+          <h3>Final Assignment</h3>
+          <p>
+            Create your personal “Tree of Life” mapping: identify your current imbalance, choose a corrective practice,
+            and document evidence of alignment for 14 days (speech, diet, sleep, behavior, offerings, service).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer printHide">
+      <div>© SwamiG Institute • Khemet–Ifá Tree of Life</div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+        <a class="chip" href="#top">Top</a>
+        <a class="chip" href="#nodes">Nodes</a>
+        <a class="chip" href="#course">Course</a>
+        <button class="chip" onclick="resetProgress()">Reset Progress</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NODE MODAL -->
+  <div class="modalBack" id="mb" onclick="if(event.target.id==='mb') closeModal()">
+    <div class="modal">
+      <div class="modalTop">
+        <div>
+          <div class="title" id="mTitle">Node</div>
+          <div class="subt" id="mSub">Correspondence</div>
+        </div>
+        <button class="x" onclick="closeModal()">Close</button>
+      </div>
+      <div class="modalBody">
+        <div class="box">
+          <h3>Teaching Notes</h3>
+          <p id="mTeach"></p>
+          <div class="pillRow" id="mTags"></div>
+        </div>
+        <div class="box">
+          <h3>Student Prompts</h3>
+          <p id="mPrompts"></p>
+          <div class="small">Tip: use prompts as weekly journal questions or discussion starters.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POSTER LIGHTBOX -->
+  <div class="modalBack" id="pb" onclick="if(event.target.id==='pb') closePoster()">
+    <div class="modal" style="max-width: 1000px;">
+      <div class="modalTop">
+        <div>
+          <div class="title">Khemet–Ifá Tree of Life</div>
+          <div class="subt">Poster View</div>
+        </div>
+        <button class="x" onclick="closePoster()">Close</button>
+      </div>
+      <div style="padding:14px;">
+        <img src="KhemticIfaTreeOfLife.png" alt="Khemet–Ifá Tree of Life poster"
+             style="width:100%; height:auto; border-radius:18px; border:1px solid rgba(255,255,255,.10);">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ========= CONFIG =========
+    // Change this to your real SGI home page if different:
+    // Examples: "https://swamiginstitute.com" or "../index.html"
+    const SGI_HOME_LINK = "index.html";
+
+    // Apply logo link
+    document.getElementById("sgiLogoLink").setAttribute("href", SGI_HOME_LINK);
+
+    // ======= Course data (16 weeks) =======
+    const course = [
+      { wk:1, title:"Amen / Obatala — Source", meta:"Stillness • Purity • Aṣẹ", learn:[
+        "Define Amen/Obatala as supreme source and ethical reference.",
+        "Practice stillness and purity of speech.",
+        "Establish class rules: truth, respect, and clean intention."
+      ], work:[
+        "Daily 7–12 min stillness practice.",
+        "Write a 1-page vow: how you will keep your word for 16 weeks."
+      ]},
+      { wk:2, title:"Tehuti / Orunmila — Wisdom", meta:"Witness • Divination • Memory", learn:[
+        "Explain ‘Witness of destiny’ and disciplined interpretation.",
+        "Study symbolism: sign → meaning → action.",
+        "Begin a journal of omens and confirmations."
+      ], work:[
+        "Daily: record one symbol and one life event; connect them carefully.",
+        "Create a personal ‘truth protocol’ (no exaggeration)."
+      ]},
+      { wk:3, title:"Sekert / Babaluaye — Transformation", meta:"Purification • Healing • Rebirth", learn:[
+        "Understand cleansing as intelligence (not punishment).",
+        "Identify patterns that need ending.",
+        "Learn ‘healing discipline’ (diet/sleep/boundaries)."
+      ], work:[
+        "Choose one cleanse: speech, food, media, or behavior (7 days).",
+        "Write: what ended + what began."
+      ]},
+      { wk:4, title:"Herukhuti / Ogun — Action & Power", meta:"Discipline • Tools • Execution", learn:[
+        "Define power as ethical capacity to act.",
+        "Tools: what amplifies your destiny? What corrupts it?",
+        "Warrior discipline and restraint."
+      ], work:[
+        "Select one tool/skill to sharpen (daily practice).",
+        "One act of service that requires effort."
+      ]},
+      { wk:5, title:"Ma’at / Orun — Law & Balance", meta:"Order • Consequence • Measure", learn:[
+        "Identify imbalance patterns and consequences.",
+        "Study Ma’at as alignment with truth.",
+        "Introduce self-audit: the scale in the heart."
+      ], work:[
+        "Daily: 3-item balance audit (sleep, diet, speech).",
+        "Write: one truth you must speak (carefully)."
+      ]},
+      { wk:6, title:"Heru / Shango — Authority & Manifestation", meta:"Justice • Courage • Leadership", learn:[
+        "Heru/Shango as visible authority.",
+        "Justice begins in the house: self-rule.",
+        "Integrate wisdom + power + law."
+      ], work:[
+        "Choose one ‘courage act’ you’ve avoided; complete it.",
+        "Write a 1-page ‘right use of power’ statement."
+      ]},
+      { wk:7, title:"Sebek / Eshu — Gateways", meta:"Crossroads • Choice • Messages", learn:[
+        "Eshu as motion, messaging, and openings.",
+        "Understand crossroads: repeating life routes.",
+        "Protocol: intention before movement."
+      ], work:[
+        "Track a repeating pattern; name its crossroads point.",
+        "Deliver one honest message you’ve delayed."
+      ]},
+      { wk:8, title:"Auset / Yemaya — Mother Waters", meta:"Nurture • Protection • Compassion", learn:[
+        "Creation waters: stability, care, emotional truth.",
+        "Protection practices: boundaries and devotion.",
+        "The mother principle holds the system together."
+      ], work:[
+        "Create a weekly ‘care ritual’ (body + home).",
+        "Write: where you need mercy and where you must give it."
+      ]},
+      { wk:9, title:"Geb / Ochosi — Earth & Precision", meta:"Tracking • Accuracy • Right Aim", learn:[
+        "Earth intelligence: slow, exact, measurable.",
+        "Ochosi as right aim and restraint.",
+        "Destiny becomes practical through precision."
+      ], work:[
+        "Set ONE measurable goal for 7 days; track it.",
+        "Practice ‘pause before action’ three times daily."
+      ]},
+      { wk:10, title:"Nekhbet / Iyami — Primordial Mothers", meta:"Elder feminine power • Origin", learn:[
+        "Respect protocol for elder feminine forces.",
+        "Creativity and consequence: power that creates and destroys.",
+        "Humility as protection."
+      ], work:[
+        "Write: what arrogance looks like in your life—and its cost.",
+        "Do one act of reverence (prayer, cleanliness, service)."
+      ]},
+      { wk:11, title:"Wadjet / Oya — Winds of Change", meta:"Transformation • Threshold", learn:[
+        "Oya as change, storms, and thresholds.",
+        "Learning to release without collapse.",
+        "Transformation as spiritual maturity."
+      ], work:[
+        "Clear one clutter zone completely (home/life).",
+        "Write: what you must release to advance."
+      ]},
+      { wk:12, title:"Sheps / Egungun — Ancestors", meta:"Lineage • Continuity • Memory", learn:[
+        "Ancestral continuity: you as the living link.",
+        "Lineage discipline: honor, truth, responsibility.",
+        "Prayer and remembrance as training."
+      ], work:[
+        "Ancestral remembrance (7 days): name + gratitude + request.",
+        "Write: a pattern you are here to heal."
+      ]},
+      { wk:13, title:"Temple is the Body — Mapping", meta:"Brain • Heart • Solar • Root", learn:[
+        "Map the Tree onto the body (your poster model).",
+        "Notice where imbalance shows physically.",
+        "Choose practices for each center."
+      ], work:[
+        "Daily: 4-center check-in (mind/heart/solar/root).",
+        "Write: where your body tells the truth."
+      ]},
+      { wk:14, title:"Divination & Cosmic Witness", meta:"Observation • Evidence • Confirmation", learn:[
+        "Witnessing destiny: observe → interpret → confirm.",
+        "Avoid projection; build evidence.",
+        "Ethics of reading for self/others."
+      ], work:[
+        "Create a 1-page ‘witness log’ template and use it daily.",
+        "Write: the difference between intuition and assumption."
+      ]},
+      { wk:15, title:"Integration of Wisdom, Law, Power", meta:"Tehuti • Ma’at • Heru", learn:[
+        "Triad integration: knowing, balancing, acting.",
+        "Decision-making model: truth + measure + courage.",
+        "Identify your weak point in the triad."
+      ], work:[
+        "Use the triad model on one real decision this week.",
+        "Write: what changed when you used measure."
+      ]},
+      { wk:16, title:"Living the Tree of Life — Graduation", meta:"Alignment • Service • Continuity", learn:[
+        "Build your ongoing practice rule (after the course).",
+        "Service and community responsibility.",
+        "Ancestral continuity: what you pass forward."
+      ], work:[
+        "Final: create your personal Tree-of-Life plan (14 days).",
+        "Submit a one-page reflection: evidence of alignment."
+      ]}
+    ];
+
+    const KEY = "sgi_khemet_ifa_tree_16wk_v1";
+
+    function loadState(){
+      try { return JSON.parse(localStorage.getItem(KEY)) || {}; }
+      catch(e){ return {}; }
+    }
+    function saveState(state){
+      localStorage.setItem(KEY, JSON.stringify(state));
+      updatePct();
+    }
+
+    function updatePct(){
+      const state = loadState();
+      const total = course.length;
+      let done = 0;
+      course.forEach(w => { if(state["wk_done_"+w.wk]) done++; });
+      const pct = Math.round((done/total)*100);
+      document.getElementById("pct").textContent = pct + "%";
+    }
+
+    function resetProgress(){
+      if(!confirm("Reset all checkmarks and notes on this device?")) return;
+      localStorage.removeItem(KEY);
+      renderCourse();
+      updatePct();
+      alert("Reset complete.");
+    }
+
+    function renderCourse(){
+      const state = loadState();
+      const host = document.getElementById("courseList");
+      host.innerHTML = "";
+
+      course.forEach(w => {
+        const det = document.createElement("details");
+        det.open = (w.wk === 1);
+
+        const sum = document.createElement("summary");
+        const left = document.createElement("div");
+        left.textContent = "Week " + w.wk + " — " + w.title;
+
+        const right = document.createElement("div");
+        right.className = "wkMeta";
+        right.textContent = w.meta;
+
+        sum.appendChild(left);
+        sum.appendChild(right);
+        det.appendChild(sum);
+
+        const body = document.createElement("div");
+        body.className = "wkBody";
+        body.innerHTML = `
+          <div class="small"><b>Learn:</b> ${w.learn.map(x => "• " + x).join("<br>")}</div>
+          <div class="small" style="margin-top:8px;"><b>Work:</b> ${w.work.map(x => "• " + x).join("<br>")}</div>
+        `;
+
+        const checkRow = document.createElement("div");
+        checkRow.className = "checkRow";
+
+        const lbl = document.createElement("label");
+        lbl.className = "chk";
+        const cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.checked = !!state["wk_done_"+w.wk];
+        cb.addEventListener("change", () => {
+          const s = loadState();
+          s["wk_done_"+w.wk] = cb.checked;
+          saveState(s);
+        });
+        lbl.appendChild(cb);
+        lbl.appendChild(document.createTextNode("Completed"));
+        checkRow.appendChild(lbl);
+
+        const lbl2 = document.createElement("label");
+        lbl2.className = "chk";
+        const cb2 = document.createElement("input");
+        cb2.type = "checkbox";
+        cb2.checked = !!state["wk_reflect_"+w.wk];
+        cb2.addEventListener("change", () => {
+          const s = loadState();
+          s["wk_reflect_"+w.wk] = cb2.checked;
+          saveState(s);
+        });
+        lbl2.appendChild(cb2);
+        lbl2.appendChild(document.createTextNode("Reflection written"));
+        checkRow.appendChild(lbl2);
+
+        const ta = document.createElement("textarea");
+        ta.placeholder = "Notes / reflections for Week " + w.wk + " (saved on this device)…";
+        ta.value = state["wk_note_"+w.wk] || "";
+        ta.addEventListener("input", () => {
+          const s = loadState();
+          s["wk_note_"+w.wk] = ta.value;
+          saveState(s);
+        });
+
+        det.appendChild(body);
+        det.appendChild(checkRow);
+        det.appendChild(ta);
+
+        host.appendChild(det);
+      });
+
+      updatePct();
+    }
+
+    // ------- Node Modal -------
+    function openNode(khemet, ifa, role, teach, tags, prompts){
+      document.getElementById("mTitle").textContent = khemet + " (" + ifa + ")";
+      document.getElementById("mSub").textContent = role;
+      document.getElementById("mTeach").textContent = teach;
+
+      const tagHost = document.getElementById("mTags");
+      tagHost.innerHTML = "";
+      (tags||[]).forEach(t => {
+        const d = document.createElement("div");
+        d.className = "pill";
+        d.textContent = t;
+        tagHost.appendChild(d);
+      });
+
+      document.getElementById("mPrompts").innerHTML =
+        (prompts||[]).map(p => "• " + p).join("<br>");
+
+      document.getElementById("mb").style.display = "flex";
+    }
+    function closeModal(){ document.getElementById("mb").style.display = "none"; }
+
+    // ------- Poster Lightbox -------
+    function openPoster(){ document.getElementById("pb").style.display = "flex"; }
+    function closePoster(){ document.getElementById("pb").style.display = "none"; }
+
+    // init
+    renderCourse();
+  </script>
+</body>
+</html>

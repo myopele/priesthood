@@ -2,14 +2,12 @@
  SGI — Public Course Page (Single File)
  Title: SwamiG Institute — Modified Khemetian Tree of Life (8-Week Public Course)
  File: sgi-tree-of-life-8week-public.html
-
- CHANGELOG (per request):
- - Removed all "Institute of Whole Life Healing" (IOWLH) reference.
- - Removed "Many Paths → One Truth" and "We Seek No Followers" phrases + related principle cards/commitments.
- - Added clickable SGI logo link to swamiginstitute.com
- - Added APPLY link (topcards + pill)
- - Replaced TOL text render with image:
-   https://swamiginstitute.com/missionsgi/tol_sm.png
+ Notes:
+  - Static HTML. Works on GitHub Pages / Cloudflare Pages.
+  - No external assets required.
+  - Progress + checklists saved locally (localStorage).
+  - Emphasis: SwamiG Institute principles. IOWLH is minimized (optional mention only).
+  - Added: clickable SGI logo + APPLY link pill (and APPLY topcard)
 ========================================================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +66,7 @@
 
     /* SGI top cards */
     .topcards{
-      display:grid; grid-template-columns: repeat(7, minmax(0,1fr));
+      display:grid; grid-template-columns: repeat(6, minmax(0,1fr));
       gap:10px; align-items:stretch;
       max-width:var(--max); margin:0 auto; padding:0 16px;
     }
@@ -124,6 +122,7 @@
       overflow:hidden;
       text-decoration:none;
     }
+    /* subtle pulse */
     .logo:before{
       content:"";
       position:absolute; inset:-40%;
@@ -148,8 +147,6 @@
       letter-spacing: -0.6px;
     }
     .lede{color:var(--muted); max-width:68ch; margin:0 0 14px}
-
-    /* pills + ctas */
     .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
     .pill{
       border:1px solid var(--border); background:var(--soft);
@@ -183,25 +180,17 @@
     .big{font:1000 18px/1.2 var(--sans); margin:8px 0 8px}
     .mini{color:var(--muted); font-size:13px; margin:0 0 10px}
     .mono{font-family:var(--mono); font-size:12px; color:var(--muted)}
-
-    /* TOL image replacement */
-    .tolFigure{ margin:10px 0 0; }
-    .tolImg{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius:14px;
-      border:1px dashed var(--border);
-      background: rgba(0,0,0,.06);
+    .tree{
+      border:1px dashed var(--border); border-radius:14px;
+      padding:12px; background:rgba(0,0,0,.06);
+      margin-top:10px;
+      font-family:var(--mono);
+      font-size:12px; line-height:1.35;
+      overflow:auto;
+      white-space:pre;
     }
     @media (prefers-color-scheme: light){
-      .tolImg{ background: rgba(34,20,48,.04); }
-    }
-    .tolCap{
-      margin:8px 0 0;
-      font-size:12px;
-      color:var(--muted);
-      line-height:1.35;
+      .tree{ background: rgba(34,20,48,.04); }
     }
 
     /* Content sections */
@@ -227,7 +216,7 @@
     /* Principles banner */
     .principles{
       display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
+      grid-template-columns: repeat(4, minmax(0,1fr));
       gap:10px;
       margin-top:12px;
     }
@@ -406,6 +395,7 @@
       <a class="tcard" href="https://iamaborisha.com" target="_blank" rel="noopener">
         <span class="dot"></span><span class="tlabel">Aborisha</span><span class="tsub">Orisha Pele</span>
       </a>
+      <!-- Added APPLY topcard -->
       <a class="tcard" href="https://forms.gle/KcvY9y9qVQ6w19Kt7" target="_blank" rel="noopener" aria-label="Apply for SwamiG Institute Course">
         <span class="dot"></span><span class="tlabel">APPLY</span><span class="tsub">Enrollment</span>
       </a>
@@ -418,6 +408,7 @@
       <div class="hero-inner">
         <div>
           <div class="brandline">
+            <!-- Added: clickable SGI logo -->
             <a href="https://swamiginstitute.com"
                class="logo"
                target="_blank"
@@ -440,24 +431,28 @@
 
           <h1>Modified Khemetian Tree of Life — 8-Week Public Course</h1>
           <p class="lede">
-            This is a SwamiG Institute study path built on core commitments of
-            <b>ancestral grounding</b>, <b>disciplined practice</b>, and <b>living what you learn</b>.
-            The Tree is taught as a living framework:
-            <b>Amen → Ausar → Heru → Tehuti/Maat → Sekert/Sebek/Het-Heru → Auset → Geb → Nehebkau/Uatchet/Sheps</b>.
+            This is a SwamiG Institute study path built on four core principles:
+            <b>Many Paths → One Truth</b>, <b>We Seek No Followers</b>, <b>Stand on the Shoulders of the Ancestors</b>,
+            and <b>Live What You Learn</b>.
+            The Tree is taught as a living framework: <b>Amen → Ausar → Heru → Tehuti/Maat → Sekert/Sebek/Het-Heru → Auset → Geb → Nehebkau/Uatchet/Sheps</b>.
           </p>
 
           <div class="principles" aria-label="SwamiG Institute principles">
             <div class="pBox">
+              <b>Many Paths → One Truth</b>
+              <span>Respect traditions; pursue alignment with truth.</span>
+            </div>
+            <div class="pBox">
+              <b>We Seek No Followers</b>
+              <span>We cultivate disciplined students and responsible servants.</span>
+            </div>
+            <div class="pBox">
               <b>Ancestral Grounding</b>
-              <span>We honor lineage and the ancestors who carried the light.</span>
+              <span>We honor the lineage of enlightened ancestors.</span>
             </div>
             <div class="pBox">
               <b>Practice Over Performance</b>
               <span>Real spirituality shows in conduct, speech, and results.</span>
-            </div>
-            <div class="pBox">
-              <b>Live What You Learn</b>
-              <span>Results are the proof. Knowledge must become character.</span>
             </div>
           </div>
 
@@ -465,6 +460,8 @@
             <span class="pill"><b>A–B–C</b> Paths: Ilekes • Warriors • Hand of Ifá</span>
             <span class="pill"><b>Uatchet</b> (Wadjet): Protective Sacred Fire</span>
             <span class="pill"><b>Public</b>: study + reflection (progress saved locally)</span>
+
+            <!-- Added: APPLY pill link -->
             <a class="pill"
                href="https://forms.gle/KcvY9y9qVQ6w19Kt7"
                target="_blank"
@@ -479,27 +476,35 @@
             <a class="btn" href="#weeks">Enter the 8 Weeks</a>
             <a class="btn secondary" href="#completion">Completion + Integrity</a>
           </div>
+
+          <!-- minimal IOWLH mention -->
+          <p class="muted" style="margin:12px 0 0; font-size:12px;">
+            Optional reference: this course also aligns with a simple three-stage arc — Know Thyself → Cleanse & Purify → Live in Alignment.
+          </p>
         </div>
 
         <aside class="side">
-          <div class="kicker">TREE (REFERENCE)</div>
-          <div class="big">A visual map for truth, discipline, and ancestral alignment</div>
-          <p class="mini">Course diagram reference (Modified Khemetian Tree of Life).</p>
-
-          <!-- REPLACED: old text TOL render -> image from your link -->
-          <figure class="tolFigure">
-            <img
-              class="tolImg"
-              src="KhemeticIfaTreeOfLife.png"
-              alt="Modified Khemetian Tree of Life diagram with Amen/Ausar and connected nodes including Tehuti, Maat, Het-Heru, Sebek, Auset, and Geb."
-              loading="lazy"
-              decoding="async"
-            />
-            <figcaption class="tolCap">
-              SwamiG Institute Tree-of-Life diagram (reference image).
-            </figcaption>
-          </figure>
-
+          <div class="kicker">TREE (RENDER)</div>
+          <div class="big">A living map for truth, discipline, and ancestral alignment</div>
+          <p class="mini">Corrected lower triad includes <b>Uatchet</b> (Wadjet).</p>
+          <div class="tree" aria-label="Text rendering of the tree">
+AMEN
+  │
+AUSAR
+  │
+├─ SEKERT ─→ SEBEK
+├─ HERU
+├─ TEHUTI
+└─ MAAT ─→ HET-HERU
+  │
+AUSET
+  │
+GEB
+  │
+├─ NEHEBKAU
+├─ UATCHET (WADJET)
+└─ SHEPS
+          </div>
           <div class="mono" style="margin-top:10px;">
             Declaration: <b>Live what you learn.</b> Results are the proof.
           </div>
@@ -542,10 +547,10 @@
 
         <h3>Completion Commitments</h3>
         <ul>
-          <li><b>Ancestral grounding:</b> I honor lineage and those who came before me.</li>
+          <li><b>Many paths → one truth.</b></li>
+          <li><b>We seek no followers.</b> We seek disciplined students and responsible servants of truth.</li>
+          <li><b>Ancestral grounding:</b> I stand on the shoulders of the ancestors and honor lineage.</li>
           <li><b>Practice over performance:</b> I will live what I learn.</li>
-          <li><b>Integrity:</b> I will tell the truth in speech and action.</li>
-          <li><b>Responsibility:</b> I will apply wisdom to real life choices.</li>
         </ul>
 
         <div class="hr"></div>
@@ -1026,11 +1031,13 @@
         document.querySelectorAll("details.week").forEach(d=> d.open = open);
       }
 
+      // Wire buttons
       document.getElementById("btnExpand").addEventListener("click", ()=>openAll(true));
       document.getElementById("btnCollapse").addEventListener("click", ()=>openAll(false));
       document.getElementById("btnExport").addEventListener("click", exportProgress);
       document.getElementById("btnReset").addEventListener("click", resetProgress);
 
+      // Init
       renderWeeks();
       updateStats();
     })();

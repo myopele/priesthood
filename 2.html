@@ -5,11 +5,8 @@
 
  CHANGELOG (per request):
  - Removed all "Institute of Whole Life Healing" (IOWLH) reference.
- - Removed "Many Paths → One Truth" and "We Seek No Followers" phrases + related principle cards/commitments.
- - Added clickable SGI logo link to swamiginstitute.com
- - Added APPLY link (topcards + pill)
- - Replaced TOL text render with image:
-   https://swamiginstitute.com/missionsgi/tol_sm.png
+ - Removed "Many Paths → One Truth" and "We Seek No Followers" phrases + principle cards + completion commitments that referenced them.
+ - Kept the rest of SGI course structure, week modules, progress tracking, clickable SGI logo, and APPLY links.
 ========================================================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +65,7 @@
 
     /* SGI top cards */
     .topcards{
-      display:grid; grid-template-columns: repeat(7, minmax(0,1fr));
+      display:grid; grid-template-columns: repeat(6, minmax(0,1fr));
       gap:10px; align-items:stretch;
       max-width:var(--max); margin:0 auto; padding:0 16px;
     }
@@ -183,25 +180,17 @@
     .big{font:1000 18px/1.2 var(--sans); margin:8px 0 8px}
     .mini{color:var(--muted); font-size:13px; margin:0 0 10px}
     .mono{font-family:var(--mono); font-size:12px; color:var(--muted)}
-
-    /* TOL image replacement */
-    .tolFigure{ margin:10px 0 0; }
-    .tolImg{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius:14px;
-      border:1px dashed var(--border);
-      background: rgba(0,0,0,.06);
+    .tree{
+      border:1px dashed var(--border); border-radius:14px;
+      padding:12px; background:rgba(0,0,0,.06);
+      margin-top:10px;
+      font-family:var(--mono);
+      font-size:12px; line-height:1.35;
+      overflow:auto;
+      white-space:pre;
     }
     @media (prefers-color-scheme: light){
-      .tolImg{ background: rgba(34,20,48,.04); }
-    }
-    .tolCap{
-      margin:8px 0 0;
-      font-size:12px;
-      color:var(--muted);
-      line-height:1.35;
+      .tree{ background: rgba(34,20,48,.04); }
     }
 
     /* Content sections */
@@ -482,24 +471,27 @@
         </div>
 
         <aside class="side">
-          <div class="kicker">TREE (REFERENCE)</div>
-          <div class="big">A visual map for truth, discipline, and ancestral alignment</div>
-          <p class="mini">Course diagram reference (Modified Khemetian Tree of Life).</p>
-
-          <!-- REPLACED: old text TOL render -> image from your link -->
-          <figure class="tolFigure">
-            <img
-              class="tolImg"
-              src="KhemeticIfaTreeOfLife.png"
-              alt="Modified Khemetian Tree of Life diagram with Amen/Ausar and connected nodes including Tehuti, Maat, Het-Heru, Sebek, Auset, and Geb."
-              loading="lazy"
-              decoding="async"
-            />
-            <figcaption class="tolCap">
-              SwamiG Institute Tree-of-Life diagram (reference image).
-            </figcaption>
-          </figure>
-
+          <div class="kicker">TREE (RENDER)</div>
+          <div class="big">A living map for truth, discipline, and ancestral alignment</div>
+          <p class="mini">Corrected lower triad includes <b>Uatchet</b> (Wadjet).</p>
+          <div class="tree" aria-label="Text rendering of the tree">
+AMEN
+  │
+AUSAR
+  │
+├─ SEKERT ─→ SEBEK
+├─ HERU
+├─ TEHUTI
+└─ MAAT ─→ HET-HERU
+  │
+AUSET
+  │
+GEB
+  │
+├─ NEHEBKAU
+├─ UATCHET (WADJET)
+└─ SHEPS
+          </div>
           <div class="mono" style="margin-top:10px;">
             Declaration: <b>Live what you learn.</b> Results are the proof.
           </div>
