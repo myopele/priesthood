@@ -1,202 +1,393 @@
-<!-- =========================================================
- SGI — Public Course Page (Single File)
- Title: SwamiG Institute — Modified Khemetian Tree of Life (8-Week Public Course)
- File: sgi-tree-of-life-8week-public.html
-
- CHANGELOG (per request):
- - Removed all "Institute of Whole Life Healing" (IOWLH) reference.
- - Removed "Many Paths → One Truth" and "We Seek No Followers" phrases + related principle cards/commitments.
- - Added clickable SGI logo link to swamiginstitute.com
- - Added APPLY link (topcards + pill)
- - Replaced TOL text render with image:
-   https://swamiginstitute.com/missionsgi/tol_sm.png
-========================================================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
-  <title>SwamiG Institute — Modified Khemetian Tree of Life (8-Week Public Course)</title>
-  <meta name="description" content="SwamiG Institute public course: Modified Khemetian Tree of Life — 8-week initiatory curriculum (Amen → Ausar → Heru → Tehuti/Maat → Sekert/Sebek/Het-Heru → Auset → Geb → Nehebkau/Uatchet/Sheps). Includes SGI A–B–C paths and local progress tracking." />
+
+  <title>SwamiG Institute — Modified Khemetian Tree of Life Course</title>
+
+  <meta name="description" content="SwamiG Institute public course: Modified Khemetian Tree of Life — an initiatory curriculum rooted in ancestral grounding, disciplined practice, SGI principles, and living what you learn." />
 
   <style>
     :root{
-      --bg:#0b0b0f; --ink:#f3f4f6; --muted:#bfc3d1;
-      --card:rgba(20,20,28,.92); --soft:rgba(255,255,255,.06);
+      --bg:#0b0b0f;
+      --ink:#f3f4f6;
+      --muted:#bfc3d1;
+      --card:rgba(20,20,28,.92);
+      --soft:rgba(255,255,255,.06);
       --border:rgba(255,255,255,.12);
-      --accent:#bb66ff; --accent2:#ffd166;
+      --accent:#bb66ff;
+      --accent2:#ffd166;
       --ring:rgba(187,102,255,.32);
-      --ok:#4ade80; --warn:#fbbf24; --bad:#fb7185;
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius: 18px;
-      --radius2: 26px;
-      --max: 1120px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --ok:#4ade80;
+      --shadow:0 20px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --radius2:26px;
+      --max:1120px;
+      --mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
+
     @media (prefers-color-scheme: light){
       :root{
-        --bg:#fbf7ff; --ink:#241a2a; --muted:#5b5562;
-        --card:rgba(255,255,255,.92); --soft:rgba(34,20,48,.06);
+        --bg:#fbf7ff;
+        --ink:#241a2a;
+        --muted:#5b5562;
+        --card:rgba(255,255,255,.92);
+        --soft:rgba(34,20,48,.06);
         --border:rgba(34,20,48,.14);
         --ring:rgba(187,102,255,.20);
-        --shadow: 0 20px 60px rgba(34,20,48,.18);
+        --shadow:0 20px 60px rgba(34,20,48,.18);
       }
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html,
     body{
-      margin:0; background:
+      height:100%;
+    }
+
+    body{
+      margin:0;
+      background:
         radial-gradient(900px 500px at 20% -10%, rgba(187,102,255,.20), transparent 55%),
         radial-gradient(900px 500px at 90% 0%, rgba(255,209,102,.18), transparent 55%),
         radial-gradient(900px 500px at 50% 110%, rgba(187,102,255,.14), transparent 55%),
         var(--bg);
-      color:var(--ink); font:16px/1.6 var(--sans);
+      color:var(--ink);
+      font:16px/1.6 var(--sans);
     }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:20px 16px 60px}
+
+    a{
+      color:inherit;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:20px 16px 60px;
+    }
+
     .topbar{
-      position:sticky; top:0; z-index:30;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,0));
+      position:sticky;
+      top:0;
+      z-index:30;
+      backdrop-filter:blur(10px);
+      background:linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,0));
       padding:10px 0;
     }
+
     @media (prefers-color-scheme: light){
-      .topbar{ background: linear-gradient(to bottom, rgba(255,255,255,.75), rgba(255,255,255,0)); }
+      .topbar{
+        background:linear-gradient(to bottom, rgba(255,255,255,.75), rgba(255,255,255,0));
+      }
     }
 
-    /* SGI top cards */
     .topcards{
-      display:grid; grid-template-columns: repeat(7, minmax(0,1fr));
-      gap:10px; align-items:stretch;
-      max-width:var(--max); margin:0 auto; padding:0 16px;
+      display:grid;
+      grid-template-columns:repeat(7, minmax(0,1fr));
+      gap:10px;
+      align-items:stretch;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 16px;
     }
-    @media (max-width: 980px){ .topcards{grid-template-columns: repeat(3, minmax(0,1fr));} }
-    @media (max-width: 560px){ .topcards{grid-template-columns: repeat(2, minmax(0,1fr));} }
+
+    @media (max-width:980px){
+      .topcards{
+        grid-template-columns:repeat(3, minmax(0,1fr));
+      }
+    }
+
+    @media (max-width:560px){
+      .topcards{
+        grid-template-columns:repeat(2, minmax(0,1fr));
+      }
+    }
+
     .tcard{
-      display:flex; gap:10px; align-items:center; justify-content:center;
-      border:1px solid var(--border); background:var(--card);
-      border-radius:14px; padding:10px 10px; text-decoration:none;
-      box-shadow: 0 10px 30px rgba(0,0,0,.18);
-      transition: transform .15s ease, border-color .15s ease;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+      border:1px solid var(--border);
+      background:var(--card);
+      border-radius:14px;
+      padding:10px;
+      text-decoration:none;
+      box-shadow:0 10px 30px rgba(0,0,0,.18);
+      transition:transform .15s ease, border-color .15s ease;
       min-height:48px;
     }
-    .tcard:hover{ transform: translateY(-1px); border-color: rgba(187,102,255,.45); }
+
+    .tcard:hover{
+      transform:translateY(-1px);
+      border-color:rgba(187,102,255,.45);
+    }
+
     .dot{
-      width:10px; height:10px; border-radius:99px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 5px var(--ring);
+      width:10px;
+      height:10px;
+      border-radius:99px;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 0 0 5px var(--ring);
       flex:0 0 auto;
     }
-    .tlabel{font-weight:900; font-size:13px; letter-spacing:.2px}
-    .tsub{font-size:12px; color:var(--muted); margin-left:2px}
 
-    /* Hero */
+    .tlabel{
+      font-weight:900;
+      font-size:13px;
+      letter-spacing:.2px;
+    }
+
+    .tsub{
+      font-size:12px;
+      color:var(--muted);
+      margin-left:2px;
+    }
+
     header.hero{
       margin-top:14px;
       border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,0));
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,0));
+      border-radius:var(--radius2);
+      box-shadow:var(--shadow);
       overflow:hidden;
       position:relative;
     }
+
     @media (prefers-color-scheme: light){
-      header.hero{ background: linear-gradient(180deg, rgba(34,20,48,.04), rgba(255,255,255,.88)); }
+      header.hero{
+        background:linear-gradient(180deg, rgba(34,20,48,.04), rgba(255,255,255,.88));
+      }
     }
-    .hero-inner{ padding:26px 22px; display:grid; grid-template-columns: 1.2fr .8fr; gap:18px; align-items:center; }
-    @media (max-width: 860px){ .hero-inner{grid-template-columns:1fr; } }
+
+    .hero-inner{
+      padding:26px 22px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+      align-items:center;
+    }
+
+    @media (max-width:860px){
+      .hero-inner{
+        grid-template-columns:1fr;
+      }
+    }
 
     .brandline{
-      display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
       margin-bottom:8px;
     }
+
     .logo{
-      width:44px; height:44px; border-radius:16px;
+      width:58px;
+      height:58px;
+      border-radius:18px;
       border:1px solid var(--border);
-      background: radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.25), transparent 60%),
-                  linear-gradient(135deg, rgba(187,102,255,.35), rgba(255,209,102,.22));
-      box-shadow: 0 0 0 7px var(--ring);
-      display:grid; place-items:center;
+      background:rgba(255,255,255,.06);
+      box-shadow:0 0 0 7px var(--ring), 0 0 24px rgba(187,102,255,.55);
+      display:grid;
+      place-items:center;
       flex:0 0 auto;
-      position:relative;
       overflow:hidden;
       text-decoration:none;
+      transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
     }
-    .logo:before{
-      content:"";
-      position:absolute; inset:-40%;
-      background: radial-gradient(circle at 40% 35%, rgba(255,255,255,.22), transparent 55%);
-      transform: rotate(10deg);
-      animation: glow 4.2s ease-in-out infinite;
-      opacity:.8;
-    }
-    @keyframes glow{
-      0%,100%{ transform: translate3d(-2%, -2%, 0) rotate(10deg); opacity:.65; }
-      50%{ transform: translate3d(2%, 2%, 0) rotate(10deg); opacity:.95; }
-    }
-    .logo svg{ width:26px; height:26px; opacity:.92; position:relative; z-index:1 }
-    .brand{
-      display:flex; flex-direction:column; line-height:1.15;
-    }
-    .brand b{font-size:14px; letter-spacing:.3px}
-    .brand span{font-size:12px; color:var(--muted)}
-    h1{
-      margin:10px 0 10px;
-      font: 900 34px/1.12 var(--sans);
-      letter-spacing: -0.6px;
-    }
-    .lede{color:var(--muted); max-width:68ch; margin:0 0 14px}
 
-    /* pills + ctas */
-    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
-    .pill{
-      border:1px solid var(--border); background:var(--soft);
-      padding:8px 10px; border-radius:999px;
-      font-size:12px; color:var(--muted);
+    .logo:hover{
+      transform:translateY(-1px) scale(1.02);
+      border-color:rgba(187,102,255,.55);
+      box-shadow:0 0 0 7px var(--ring), 0 0 34px rgba(187,102,255,.75);
     }
-    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+
+    .sgi-logo{
+      width:48px;
+      height:48px;
+      object-fit:contain;
+      display:block;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      line-height:1.15;
+    }
+
+    .brand b{
+      font-size:14px;
+      letter-spacing:.3px;
+    }
+
+    .brand span{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    h1{
+      margin:10px 0;
+      font:900 34px/1.12 var(--sans);
+      letter-spacing:-.6px;
+    }
+
+    .lede{
+      color:var(--muted);
+      max-width:68ch;
+      margin:0 0 14px;
+    }
+
+    .principles{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:10px;
+      margin-top:12px;
+    }
+
+    @media (max-width:980px){
+      .principles{
+        grid-template-columns:repeat(2, minmax(0,1fr));
+      }
+    }
+
+    @media (max-width:520px){
+      .principles{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .pBox{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,0));
+    }
+
+    .pBox b{
+      display:block;
+      font-weight:1000;
+      font-size:13px;
+    }
+
+    .pBox span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      margin-top:3px;
+    }
+
+    .pillrow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .pill{
+      border:1px solid var(--border);
+      background:var(--soft);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .pill.apply{
+      text-decoration:none;
+      font-weight:900;
+      color:var(--ink);
+      border-color:rgba(187,102,255,.55);
+    }
+
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+
     .btn{
       border:1px solid rgba(187,102,255,.55);
-      background: linear-gradient(135deg, rgba(187,102,255,.18), rgba(255,209,102,.12));
+      background:linear-gradient(135deg, rgba(187,102,255,.18), rgba(255,209,102,.12));
       color:var(--ink);
-      padding:10px 12px; border-radius:14px;
-      text-decoration:none; font-weight:1000; font-size:13px;
-      box-shadow: 0 14px 40px rgba(0,0,0,.18);
-      display:inline-flex; align-items:center; gap:10px;
-    }
-    .btn.secondary{
-      border-color: var(--border);
-      background: var(--card);
+      padding:10px 12px;
+      border-radius:14px;
+      text-decoration:none;
       font-weight:1000;
+      font-size:13px;
+      box-shadow:0 14px 40px rgba(0,0,0,.18);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
     }
-    .btn:focus{outline:none; box-shadow: 0 0 0 6px var(--ring), 0 14px 40px rgba(0,0,0,.18);}
 
-    /* Side card */
+    .btn.secondary{
+      border-color:var(--border);
+      background:var(--card);
+    }
+
+    .btn:focus{
+      outline:none;
+      box-shadow:0 0 0 6px var(--ring), 0 14px 40px rgba(0,0,0,.18);
+    }
+
     .side{
-      border:1px solid var(--border); background:var(--card);
-      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background:var(--card);
+      border-radius:var(--radius);
       padding:16px;
     }
-    .kicker{font-weight:1000; letter-spacing:.45px; font-size:12px; color:var(--muted)}
-    .big{font:1000 18px/1.2 var(--sans); margin:8px 0 8px}
-    .mini{color:var(--muted); font-size:13px; margin:0 0 10px}
-    .mono{font-family:var(--mono); font-size:12px; color:var(--muted)}
 
-    /* TOL image replacement */
-    .tolFigure{ margin:10px 0 0; }
+    .kicker{
+      font-weight:1000;
+      letter-spacing:.45px;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .big{
+      font:1000 18px/1.2 var(--sans);
+      margin:8px 0;
+    }
+
+    .mini{
+      color:var(--muted);
+      font-size:13px;
+      margin:0 0 10px;
+    }
+
+    .mono{
+      font-family:var(--mono);
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .tolFigure{
+      margin:10px 0 0;
+    }
+
     .tolImg{
       width:100%;
       height:auto;
       display:block;
       border-radius:14px;
       border:1px dashed var(--border);
-      background: rgba(0,0,0,.06);
+      background:rgba(0,0,0,.06);
     }
+
     @media (prefers-color-scheme: light){
-      .tolImg{ background: rgba(34,20,48,.04); }
+      .tolImg{
+        background:rgba(34,20,48,.04);
+      }
     }
+
     .tolCap{
       margin:8px 0 0;
       font-size:12px;
@@ -204,77 +395,131 @@
       line-height:1.35;
     }
 
-    /* Content sections */
-    main{margin-top:18px}
+    main{
+      margin-top:18px;
+    }
+
     .grid{
-      display:grid; grid-template-columns: 1fr 360px; gap:14px;
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:14px;
       align-items:start;
     }
-    @media (max-width: 980px){ .grid{grid-template-columns:1fr;} }
+
+    @media (max-width:980px){
+      .grid{
+        grid-template-columns:1fr;
+      }
+    }
 
     .card{
       border:1px solid var(--border);
       background:var(--card);
-      border-radius: var(--radius);
-      box-shadow: 0 16px 50px rgba(0,0,0,.18);
+      border-radius:var(--radius);
+      box-shadow:0 16px 50px rgba(0,0,0,.18);
       padding:18px;
     }
-    .card h2{margin:0 0 8px; font: 1000 20px/1.2 var(--sans)}
-    .card h3{margin:16px 0 8px; font: 1000 15px/1.2 var(--sans); color: var(--ink)}
-    .muted{color:var(--muted)}
-    .hr{height:1px; background:var(--border); margin:14px 0}
 
-    /* Principles banner */
-    .principles{
+    .card h2{
+      margin:0 0 8px;
+      font:1000 20px/1.2 var(--sans);
+    }
+
+    .card h3{
+      margin:16px 0 8px;
+      font:1000 15px/1.2 var(--sans);
+      color:var(--ink);
+    }
+
+    .muted{
+      color:var(--muted);
+    }
+
+    .hr{
+      height:1px;
+      background:var(--border);
+      margin:14px 0;
+    }
+
+    .weeks{
       display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap:10px;
-      margin-top:12px;
+      gap:12px;
     }
-    @media (max-width: 980px){ .principles{grid-template-columns: repeat(2, minmax(0,1fr));} }
-    @media (max-width: 520px){ .principles{grid-template-columns: 1fr;} }
-    .pBox{
-      border:1px solid var(--border);
-      border-radius: 16px;
-      padding:12px;
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,0));
-    }
-    .pBox b{display:block; font-weight:1000; font-size:13px}
-    .pBox span{display:block; color:var(--muted); font-size:12px; margin-top:3px}
 
-    /* Week modules */
-    .weeks{display:grid; gap:12px}
     details.week{
       border:1px solid var(--border);
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,0));
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,0));
       overflow:hidden;
     }
-    details.week[open]{ box-shadow: 0 16px 55px rgba(0,0,0,.18); }
+
+    details.week[open]{
+      box-shadow:0 16px 55px rgba(0,0,0,.18);
+    }
+
     summary{
       list-style:none;
       cursor:pointer;
-      padding:14px 14px;
-      display:flex; align-items:center; justify-content:space-between;
+      padding:14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap:12px;
       user-select:none;
     }
-    summary::-webkit-details-marker{display:none}
-    .wleft{display:flex; gap:12px; align-items:center; min-width:0}
+
+    summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .wleft{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      min-width:0;
+    }
+
     .badgeW{
-      width:40px; height:40px; border-radius:14px;
-      display:grid; place-items:center;
+      width:40px;
+      height:40px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
       border:1px solid var(--border);
-      background: radial-gradient(18px 18px at 35% 35%, rgba(255,255,255,.25), transparent 60%),
-                  linear-gradient(135deg, rgba(187,102,255,.22), rgba(255,209,102,.14));
-      box-shadow: 0 0 0 7px var(--ring);
+      background:
+        radial-gradient(18px 18px at 35% 35%, rgba(255,255,255,.25), transparent 60%),
+        linear-gradient(135deg, rgba(187,102,255,.22), rgba(255,209,102,.14));
+      box-shadow:0 0 0 7px var(--ring);
       font-weight:1000;
     }
-    .wtitle{min-width:0}
-    .wtitle b{display:block; font-weight:1000; letter-spacing:.2px}
-    .wtitle span{display:block; color:var(--muted); font-size:12px; margin-top:2px}
-    .wmeta{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end}
-    .chip{
+
+    .wtitle{
+      min-width:0;
+    }
+
+    .wtitle b{
+      display:block;
+      font-weight:1000;
+      letter-spacing:.2px;
+    }
+
+    .wtitle span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      margin-top:2px;
+    }
+
+    .wmeta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .chip,
+    .progressPill{
       font-size:12px;
       padding:6px 10px;
       border-radius:999px;
@@ -283,81 +528,151 @@
       color:var(--muted);
       white-space:nowrap;
     }
+
     .progressPill{
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(74,222,128,.35);
-      background: rgba(74,222,128,.10);
-      color: var(--ink);
-      white-space:nowrap;
+      border-color:rgba(74,222,128,.35);
+      background:rgba(74,222,128,.10);
+      color:var(--ink);
       font-weight:1000;
     }
-    .weekBody{ padding: 0 14px 14px; }
-    .twoCol{
-      display:grid; grid-template-columns: 1.1fr .9fr; gap:12px;
+
+    .weekBody{
+      padding:0 14px 14px;
     }
-    @media (max-width: 860px){ .twoCol{grid-template-columns:1fr;} }
+
+    .twoCol{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:12px;
+    }
+
+    @media (max-width:860px){
+      .twoCol{
+        grid-template-columns:1fr;
+      }
+    }
+
     .box{
       border:1px solid var(--border);
-      border-radius: 16px;
+      border-radius:16px;
       padding:12px;
-      background: rgba(0,0,0,.06);
+      background:rgba(0,0,0,.06);
     }
-    @media (prefers-color-scheme: light){
-      .box{ background: rgba(34,20,48,.04); }
-    }
-    ul{margin:8px 0 0 18px}
-    .checks{margin-top:8px; display:grid; gap:8px}
-    .check{
-      display:flex; gap:10px; align-items:flex-start;
-      border:1px solid var(--border);
-      background: var(--card);
-      padding:10px 10px;
-      border-radius: 14px;
-    }
-    input[type="checkbox"]{ transform: translateY(2px); }
-    .check b{display:block; font-size:13px}
-    .check span{display:block; color:var(--muted); font-size:12px; margin-top:2px}
 
-    /* Sidebar widgets */
-    .sideCard{position:sticky; top:86px}
-    .statRow{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px; margin-top:10px}
+    @media (prefers-color-scheme: light){
+      .box{
+        background:rgba(34,20,48,.04);
+      }
+    }
+
+    ul{
+      margin:8px 0 0 18px;
+    }
+
+    .checks{
+      margin-top:8px;
+      display:grid;
+      gap:8px;
+    }
+
+    .check{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      border:1px solid var(--border);
+      background:var(--card);
+      padding:10px;
+      border-radius:14px;
+    }
+
+    input[type="checkbox"]{
+      transform:translateY(2px);
+    }
+
+    .check b{
+      display:block;
+      font-size:13px;
+    }
+
+    .check span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      margin-top:2px;
+    }
+
+    .sideCard{
+      position:sticky;
+      top:86px;
+    }
+
+    .statRow{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:10px;
+      margin-top:10px;
+    }
+
     .stat{
       border:1px solid var(--border);
       background:var(--soft);
-      border-radius: 16px;
+      border-radius:16px;
       padding:10px;
     }
-    .stat b{display:block; font-size:18px}
-    .stat span{display:block; color:var(--muted); font-size:12px}
+
+    .stat b{
+      display:block;
+      font-size:18px;
+    }
+
+    .stat span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+    }
+
     .bar{
-      height:10px; border-radius:99px;
-      background: rgba(255,255,255,.08);
+      height:10px;
+      border-radius:99px;
+      background:rgba(255,255,255,.08);
       border:1px solid var(--border);
       overflow:hidden;
       margin-top:10px;
     }
+
     .bar > i{
-      display:block; height:100%;
+      display:block;
+      height:100%;
       width:0%;
-      background: linear-gradient(90deg, rgba(187,102,255,.55), rgba(255,209,102,.55));
-      box-shadow: 0 0 0 6px var(--ring);
+      background:linear-gradient(90deg, rgba(187,102,255,.55), rgba(255,209,102,.55));
+      box-shadow:0 0 0 6px var(--ring);
     }
-    .smallBtns{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+
+    .smallBtns{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+
     .smallBtns button{
       border:1px solid var(--border);
-      background: var(--card);
+      background:var(--card);
       color:var(--ink);
-      border-radius: 14px;
-      padding:10px 10px;
+      border-radius:14px;
+      padding:10px;
       font-weight:1000;
       font-size:12px;
       cursor:pointer;
     }
-    .smallBtns button:hover{ border-color: rgba(187,102,255,.45); }
+
+    .smallBtns button:hover{
+      border-color:rgba(187,102,255,.45);
+    }
+
     .notice{
-      font-size:12px; color:var(--muted);
+      font-size:12px;
+      color:var(--muted);
       margin-top:12px;
       border-top:1px dashed var(--border);
       padding-top:12px;
@@ -372,131 +687,165 @@
       text-align:center;
       opacity:.85;
     }
+
     .footline{
-      display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
     }
+
     .softmark{
-      opacity:.35; letter-spacing:.22em;
+      opacity:.35;
+      letter-spacing:.22em;
       text-transform:uppercase;
       font-size:10px;
     }
-    .anchorlink{ text-decoration:none; border-bottom:1px dotted var(--border); }
+
+    .anchorlink{
+      text-decoration:none;
+      border-bottom:1px dotted var(--border);
+    }
   </style>
 </head>
 
 <body>
-  <!-- Topbar / SGI Top Cards -->
+
   <div class="topbar">
     <nav class="topcards" aria-label="SwamiG Institute top navigation">
       <a class="tcard" href="https://swamiginstitute.com" target="_blank" rel="noopener">
-        <span class="dot"></span><span class="tlabel">SGI</span><span class="tsub">Home</span>
+        <span class="dot"></span>
+        <span class="tlabel">SGI</span>
+        <span class="tsub">Home</span>
       </a>
+
       <a class="tcard" href="https://16cowrie.com" target="_blank" rel="noopener">
-        <span class="dot"></span><span class="tlabel">16Cowrie</span><span class="tsub">Certification</span>
+        <span class="dot"></span>
+        <span class="tlabel">16Cowrie</span>
+        <span class="tsub">Certification</span>
       </a>
+
       <a class="tcard" href="https://4cowrieshell.com" target="_blank" rel="noopener">
-        <span class="dot"></span><span class="tlabel">4Cowrie</span><span class="tsub">Obi/4-Cowrie</span>
+        <span class="dot"></span>
+        <span class="tlabel">4Cowrie</span>
+        <span class="tsub">Obi/4-Cowrie</span>
       </a>
+
       <a class="tcard" href="https://myopele.com" target="_blank" rel="noopener">
-        <span class="dot"></span><span class="tlabel">MyOpele</span><span class="tsub">Opele Tools</span>
+        <span class="dot"></span>
+        <span class="tlabel">MyOpele</span>
+        <span class="tsub">Opele Tools</span>
       </a>
+
       <a class="tcard" href="https://iamiyawo.com" target="_blank" rel="noopener">
-        <span class="dot"></span><span class="tlabel">Iyawo</span><span class="tsub">Track</span>
+        <span class="dot"></span>
+        <span class="tlabel">Iyawo</span>
+        <span class="tsub">Track</span>
       </a>
+
       <a class="tcard" href="https://iamaborisha.com" target="_blank" rel="noopener">
-        <span class="dot"></span><span class="tlabel">Aborisha</span><span class="tsub">Orisha Pele</span>
+        <span class="dot"></span>
+        <span class="tlabel">Aborisha</span>
+        <span class="tsub">Orisha Pele</span>
       </a>
-      <a class="tcard" href="https://forms.gle/KcvY9y9qVQ6w19Kt7" target="_blank" rel="noopener" aria-label="Apply for SwamiG Institute Course">
-        <span class="dot"></span><span class="tlabel">APPLY</span><span class="tsub">Enrollment</span>
+
+      <a class="tcard" href="https://forms.gle/KcvY9y9qVQ6w19Kt7" target="_blank" rel="noopener">
+        <span class="dot"></span>
+        <span class="tlabel">APPLY</span>
+        <span class="tsub">Enrollment</span>
       </a>
     </nav>
   </div>
 
   <div class="wrap">
-    <!-- Hero -->
+
     <header class="hero" id="top">
       <div class="hero-inner">
+
         <div>
           <div class="brandline">
+
             <a href="https://swamiginstitute.com"
                class="logo"
                target="_blank"
                rel="noopener"
                aria-label="SwamiG Institute Home"
                title="SwamiG Institute Home">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 2c3.7 2.4 6 6.4 6 10.8C18 18 15.3 22 12 22S6 18 6 12.8C6 8.4 8.3 4.4 12 2Z"
-                      stroke="currentColor" stroke-width="1.6" opacity=".85"></path>
-                <path d="M12 7v10" stroke="currentColor" stroke-width="1.6" opacity=".65"></path>
-                <path d="M8.3 10.3c2.6 1.2 4.8 1.2 7.4 0" stroke="currentColor" stroke-width="1.6" opacity=".55"></path>
-              </svg>
+              <img src="SwamiG(1).gif" alt="SwamiG Institute Logo" class="sgi-logo">
             </a>
 
             <div class="brand">
               <b>SwamiG Institute</b>
               <span>Ifá • Isésé • Orisha — Modules of Enlightenment for the Diaspora</span>
             </div>
+
           </div>
 
-          <h1>Modified Khemetian Tree of Life — 8-Week Public Course</h1>
+          <h1>Modified Khemetian Tree of Life — Public Course</h1>
+
           <p class="lede">
             This is a SwamiG Institute study path built on core commitments of
-            <b>ancestral grounding</b>, <b>disciplined practice</b>, and <b>living what you learn</b>.
-            The Tree is taught as a living framework:
+            <b>ancestral grounding</b>, <b>disciplined practice</b>, and
+            <b>living what you learn</b>. The Tree is taught as a living framework:
             <b>Amen → Ausar → Heru → Tehuti/Maat → Sekert/Sebek/Het-Heru → Auset → Geb → Nehebkau/Uatchet/Sheps</b>.
           </p>
 
           <div class="principles" aria-label="SwamiG Institute principles">
             <div class="pBox">
-              <b>Ancestral Grounding</b>
-              <span>We honor lineage and the ancestors who carried the light.</span>
+              <b>Radical Devotion</b>
+              <span>Auset / Yemojah — devotion, alignment, care, restoration, and sacred responsibility.</span>
             </div>
+
             <div class="pBox">
-              <b>Practice Over Performance</b>
-              <span>Real spirituality shows in conduct, speech, and results.</span>
+              <b>Words of Power</b>
+              <span>Sekert / Olokun — speech, depth, mystery, discipline, invocation, and transformation.</span>
             </div>
+
             <div class="pBox">
-              <b>Live What You Learn</b>
-              <span>Results are the proof. Knowledge must become character.</span>
+              <b>Infinite Wisdom</b>
+              <span>Tehuti / Orunmila — discernment, divination, destiny, order, and spiritual intelligence.</span>
             </div>
           </div>
 
           <div class="pillrow">
             <span class="pill"><b>A–B–C</b> Paths: Ilekes • Warriors • Hand of Ifá</span>
-            <span class="pill"><b>Uatchet</b> (Wadjet): Protective Sacred Fire</span>
-            <span class="pill"><b>Public</b>: study + reflection (progress saved locally)</span>
-            <a class="pill"
+            <span class="pill"><b>SGI Principle:</b> Extending Royal Legacy</span>
+            <span class="pill"><b>SGI Principle:</b> Shoulders of Enlightened Ancestors</span>
+
+            <a class="pill apply"
                href="https://forms.gle/KcvY9y9qVQ6w19Kt7"
                target="_blank"
                rel="noopener"
-               aria-label="Apply for the SwamiG Institute Tree of Life course"
-               style="text-decoration:none; font-weight:900; color:var(--ink); border-color: rgba(187,102,255,.55);">
+               aria-label="Apply for the SwamiG Institute Tree of Life course">
               APPLY
             </a>
           </div>
 
           <div class="ctaRow">
-            <a class="btn" href="#weeks">Enter the 8 Weeks</a>
+            <a class="btn" href="#weeks">Enter the Course</a>
             <a class="btn secondary" href="#completion">Completion + Integrity</a>
           </div>
         </div>
 
         <aside class="side">
-          <div class="kicker">TREE (REFERENCE)</div>
-          <div class="big">A visual map for truth, discipline, and ancestral alignment</div>
-          <p class="mini">Course diagram reference (Modified Khemetian Tree of Life).</p>
+          <div class="kicker">TREE REFERENCE</div>
+          <div class="big">A visual map for truth, discipline, divination, and ancestral alignment</div>
 
-          <!-- REPLACED: old text TOL render -> image from your link -->
+          <p class="mini">
+            Course diagram reference for the Modified Khemetian Tree of Life.
+          </p>
+
           <figure class="tolFigure">
             <img
               class="tolImg"
               src="KhemeticIfaTreeOfLife.png"
-              alt="Modified Khemetian Tree of Life diagram with Amen/Ausar and connected nodes including Tehuti, Maat, Het-Heru, Sebek, Auset, and Geb."
+              alt="Modified Khemetian Tree of Life diagram with Amen, Ausar, Heru, Tehuti, Maat, Het-Heru, Sebek, Auset, Geb, and related sacred powers."
               loading="lazy"
               decoding="async"
             />
+
             <figcaption class="tolCap">
-              SwamiG Institute Tree-of-Life diagram (reference image).
+              SwamiG Institute Tree-of-Life diagram reference image.
             </figcaption>
           </figure>
 
@@ -504,66 +853,81 @@
             Declaration: <b>Live what you learn.</b> Results are the proof.
           </div>
         </aside>
+
       </div>
     </header>
 
     <main class="grid">
-      <!-- Main content -->
+
       <section class="card">
-        <h2>How to Use This Course (SGI Style)</h2>
+        <h2>How to Use This Course</h2>
+
         <p class="muted">
-          Each week has: <b>Principles</b> (what to understand), <b>Practices</b> (what to do), and a <b>Checklist</b> (what to complete).
-          The goal is not information—it is <b>alignment</b>. This is why SGI emphasizes: <b>practice over performance</b>.
+          Each module includes <b>principles</b>, <b>practices</b>, and a
+          <b>completion checklist</b>. The goal is not information alone. The goal is
+          alignment, conduct, spiritual discipline, divination readiness, and the living
+          expression of SGI principles.
         </p>
 
         <div class="hr"></div>
 
-        <h3>Three SGI Paths (A–B–C)</h3>
+        <h3>Three SGI Paths</h3>
+
         <ul>
-          <li><b>A — Ilekes Path:</b> identity, devotion, authorization, and alignment.</li>
-          <li><b>B — Warriors Path:</b> discipline, ethical speech, purification, and spiritual defense.</li>
-          <li><b>C — Hand of Ifá:</b> wisdom, destiny alignment, ancestral intelligence, and divination readiness.</li>
+          <li><b>A — Ilekes Path:</b> identity, devotion, authorization, spiritual orientation, and alignment.</li>
+          <li><b>B — Warriors Path:</b> discipline, ethical speech, purification, courage, and spiritual defense.</li>
+          <li><b>C — Hand of Ifá:</b> wisdom, destiny alignment, ancestral intelligence, divination readiness, and sacred responsibility.</li>
         </ul>
 
         <div class="hr"></div>
 
-        <h3 id="weeks">The 8 Weeks</h3>
-        <p class="muted">Open a week, complete the checklist, and your progress updates automatically.</p>
+        <h3 id="weeks">The Course Modules</h3>
+
+        <p class="muted">
+          Open each module, complete the checklist, and your progress updates automatically on this device.
+        </p>
 
         <div class="weeks" id="weeksContainer"></div>
 
         <div class="hr"></div>
 
-        <h2 id="completion">Completion + Integrity (Public)</h2>
+        <h2 id="completion">Completion + Integrity</h2>
+
         <p class="muted">
-          Public completion means: you finished all checklists and can explain how the Tree changes your <b>conduct</b>, <b>speech</b>, and <b>choices</b>.
-          In SGI terms: <b>knowledge without character is incomplete.</b>
+          Completion means you can explain how the Tree changes your
+          <b>conduct</b>, <b>speech</b>, <b>divination practice</b>, and
+          <b>daily choices</b>. In SGI terms, knowledge must become character.
         </p>
 
         <h3>Completion Commitments</h3>
+
         <ul>
-          <li><b>Ancestral grounding:</b> I honor lineage and those who came before me.</li>
-          <li><b>Practice over performance:</b> I will live what I learn.</li>
-          <li><b>Integrity:</b> I will tell the truth in speech and action.</li>
-          <li><b>Responsibility:</b> I will apply wisdom to real life choices.</li>
+          <li><b>Radical Devotion:</b> I commit to devotion that becomes visible through action.</li>
+          <li><b>Words of Power:</b> I commit to speech that heals, clarifies, protects, and aligns.</li>
+          <li><b>Infinite Wisdom:</b> I commit to wisdom that is lived, practiced, and verified.</li>
+          <li><b>Royal Legacy:</b> I commit to extending the dignity, beauty, and responsibility of ancestral inheritance.</li>
+          <li><b>Enlightened Ancestors:</b> I commit to standing on the shoulders of those who carried light before me.</li>
         </ul>
 
         <div class="hr"></div>
 
         <h3>Public Disclaimer</h3>
+
         <p class="muted">
-          This is spiritual education for reflection and personal development. It does not diagnose, treat, or replace professional medical, legal, or mental health care.
+          This course is spiritual education for reflection and personal development.
+          It does not diagnose, treat, or replace professional medical, legal, financial,
+          or mental health care.
         </p>
       </section>
 
-      <!-- Sidebar -->
       <aside class="card sideCard" aria-label="Progress panel">
         <h2 style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
           Progress
           <span class="chip" id="saveStatus">Saved locally</span>
         </h2>
+
         <p class="muted" style="margin-top:0">
-          Your checkmarks are stored on <b>this device</b> only (localStorage).
+          Your checkmarks are stored on <b>this device</b> only.
         </p>
 
         <div class="statRow">
@@ -571,6 +935,7 @@
             <b id="doneCount">0</b>
             <span>Tasks completed</span>
           </div>
+
           <div class="stat">
             <b id="pctDone">0%</b>
             <span>Overall progress</span>
@@ -582,16 +947,17 @@
         </div>
 
         <div class="smallBtns">
-          <button id="btnExpand">Open all weeks</button>
-          <button id="btnCollapse">Close all weeks</button>
+          <button id="btnExpand">Open all modules</button>
+          <button id="btnCollapse">Close all modules</button>
           <button id="btnExport">Export progress</button>
           <button id="btnReset">Reset</button>
         </div>
 
         <div class="notice">
-          Tip: To show completion publicly, export your progress file and keep it as your personal record.
+          Tip: To preserve your completion record, export your progress file and keep it for your personal archive.
         </div>
       </aside>
+
     </main>
 
     <footer>
@@ -603,203 +969,272 @@
         <span>Modules of Enlightenment for the Diaspora</span>
       </div>
     </footer>
+
   </div>
 
   <script>
     (function(){
-      const STORAGE_KEY = "sgi_tree_of_life_8wk_public_sgi_v1";
+      const STORAGE_KEY = "sgi_tree_of_life_course_index_progress_v1";
 
       const weeks = [
         {
-          num: 1,
-          title: "Amen",
-          subtitle: "The Hidden Source",
-          chips: ["SGI: Stillness → Power", "A–C emphasis"],
-          principle: [
+          num:1,
+          title:"Amen",
+          subtitle:"The Hidden Source",
+          chips:["Stillness","Ori","Root Power"],
+          principle:[
             "Stillness precedes power.",
-            "The unseen governs outcomes before the seen appears."
+            "The unseen governs outcomes before the seen appears.",
+            "Ori must be approached before outward authority is claimed."
           ],
-          practice: [
-            "7-minute silence (daily).",
-            "Breath awareness + observation (no performance).",
-            "Ancestral acknowledgment (spoken or written)."
+          practice:[
+            "Begin with seven minutes of silence.",
+            "Journal what is hidden beneath your current choices.",
+            "Offer ancestral acknowledgment before study."
           ],
-          path: [
-            "A (Ilekes): identity before display—devotion in private.",
-            "C (Hand of Ifá): destiny exists before circumstances."
+          path:[
+            "Ilekes: identity before display.",
+            "Hand of Ifá: destiny before circumstance.",
+            "Warriors: restraint before action."
           ],
-          checklist: [
-            {t:"Silence practice completed 3+ times", s:"Notice what you stop chasing when you get quiet."},
-            {t:"Ancestral acknowledgment completed", s:"Name who you stand on (known or unknown)."},
-            {t:"Reflection written (6–10 sentences)", s:"What unseen force is shaping your life right now?"}
+          checklist:[
+            {t:"Completed silence practice", s:"Practice stillness before speaking or acting."},
+            {t:"Wrote hidden-source reflection", s:"Name what is influencing your choices beneath the surface."},
+            {t:"Completed ancestral acknowledgment", s:"Honor known and unknown ancestors."}
           ]
         },
         {
-          num: 2,
-          title: "Ausar",
-          subtitle: "Divine Law & Restoration",
-          chips: ["SGI: Self-rule", "A–B emphasis"],
-          principle: [
+          num:2,
+          title:"Ausar",
+          subtitle:"Divine Law and Restoration",
+          chips:["Restoration","Order","Self-Rule"],
+          principle:[
             "Self-rule is the beginning of spiritual authority.",
-            "Restoration follows fragmentation—repair is sacred."
+            "Restoration follows fragmentation.",
+            "Discipline restores the throne of consciousness."
           ],
-          practice: [
-            "Ethical self-inventory (conduct, speech, discipline).",
-            "One corrective vow (simple + measurable).",
-            "Daily review: what did I restore today?"
+          practice:[
+            "Complete an ethical self-inventory.",
+            "Choose one corrective vow.",
+            "Review your conduct at the end of each day."
           ],
-          path: [
-            "A (Ilekes): authority through alignment, not hype.",
-            "B (Warriors): discipline of conduct—clean life, clean power."
+          path:[
+            "Ilekes: authority through alignment.",
+            "Warriors: discipline of conduct.",
+            "Hand of Ifá: responsibility before interpretation."
           ],
-          checklist: [
-            {t:"Completed ethical self-inventory", s:"List 3 strengths + 3 corrections."},
-            {t:"Kept one corrective vow 4+ days", s:"Small vow done consistently beats big vow done once."},
-            {t:"Reflection written", s:"Where do you need restoration (renewal) most?"}
+          checklist:[
+            {t:"Completed self-inventory", s:"List strengths, weaknesses, and needed corrections."},
+            {t:"Kept one corrective vow", s:"Choose a vow that can be measured."},
+            {t:"Wrote restoration reflection", s:"Where must restoration happen in your life?"}
           ]
         },
         {
-          num: 3,
-          title: "Heru",
-          subtitle: "Awakened Consciousness & Right Action",
-          chips: ["SGI: Clarity → Action", "B–C emphasis"],
-          principle: [
+          num:3,
+          title:"Heru",
+          subtitle:"Awakened Consciousness and Right Action",
+          chips:["Clarity","Courage","Action"],
+          principle:[
             "Awareness governs power.",
-            "Action without clarity produces disorder."
+            "Right action requires clear sight.",
+            "Victory begins with disciplined perception."
           ],
-          practice: [
-            "Observe reactions (anger, fear, ego).",
-            "Alignment journaling: ‘What is right action here?’",
-            "Eye-of-Heru focus practice (steady attention)."
+          practice:[
+            "Track emotional reactions.",
+            "Pause before major speech or action.",
+            "Ask: what is right action here?"
           ],
-          path: [
-            "B (Warriors): conscious restraint and ethical strength.",
-            "C (Hand of Ifá): clarity before divination or major choices."
+          path:[
+            "Warriors: conscious restraint and protection.",
+            "Hand of Ifá: clarity before divination.",
+            "Ilekes: devotion that matures into responsibility."
           ],
-          checklist: [
-            {t:"Tracked 3 reaction patterns", s:"Trigger → reaction → consequence."},
-            {t:"Practiced ‘right action’ in a hard moment", s:"Describe the choice and why it was right."},
-            {t:"Reflection written", s:"How does clarity change your power?"}
+          checklist:[
+            {t:"Tracked three reaction patterns", s:"Trigger, reaction, consequence, correction."},
+            {t:"Practiced right action", s:"Describe one difficult moment handled with clarity."},
+            {t:"Wrote Heru reflection", s:"How does clarity change your power?"}
           ]
         },
         {
-          num: 4,
-          title: "Tehuti & Maat",
-          subtitle: "Wisdom, Speech & Truth",
-          chips: ["SGI: Words matter", "B emphasis"],
-          principle: [
+          num:4,
+          title:"Tehuti and Maat",
+          subtitle:"Wisdom, Speech, Truth, and Balance",
+          chips:["Truth","Words","Order"],
+          principle:[
             "Words shape reality.",
-            "Truth sustains order; falsehood collapses power."
+            "Truth sustains order.",
+            "Wisdom without balance becomes distortion."
           ],
-          practice: [
-            "Speech discipline: remove one harmful habit (gossip, exaggeration, needless conflict).",
-            "Daily ‘Maat check’: truth, balance, justice in decisions.",
-            "Sacred writing: a short statement of truth you will live."
+          practice:[
+            "Complete a speech discipline exercise.",
+            "Remove one harmful speech habit.",
+            "Use a daily Maat check before decisions."
           ],
-          path: [
-            "B (Warriors): words of power—speech is a weapon and a medicine.",
-            "A (Ilekes): devotion becomes real through truth."
+          path:[
+            "Words of Power: speech as medicine and command.",
+            "Warriors: speech as protection.",
+            "Hand of Ifá: interpretation must serve truth."
           ],
-          checklist: [
-            {t:"Completed a 3-day speech discipline", s:"Name what you stopped and what changed."},
-            {t:"Performed 5 ‘Maat checks’", s:"Pause → choose truth → act."},
-            {t:"Reflection written", s:"How does your speech create (or destroy) alignment?"}
+          checklist:[
+            {t:"Completed three-day speech discipline", s:"Reduce gossip, exaggeration, or unnecessary conflict."},
+            {t:"Performed Maat checks", s:"Truth, balance, justice, right action."},
+            {t:"Wrote truth reflection", s:"How does your speech create or destroy alignment?"}
           ]
         },
         {
-          num: 5,
-          title: "Sekert • Sebek • Het-Heru",
-          subtitle: "Transformation, Protection & Harmony",
-          chips: ["SGI: Power tempered", "B–A emphasis"],
-          principle: [
+          num:5,
+          title:"Divination Integration",
+          subtitle:"Cowrie, Obi, Opele, and Sacred Questioning",
+          chips:["Divination","Discernment","Verification"],
+          principle:[
+            "Divination is not guessing; it is disciplined listening.",
+            "Questions must be clear before answers can be useful.",
+            "The diviner must cultivate truth, humility, and responsibility."
+          ],
+          practice:[
+            "Write three yes/no questions for self-examination.",
+            "Practice distinguishing desire from guidance.",
+            "Record observations without forcing meaning."
+          ],
+          path:[
+            "4 Cowrie: clear question, cast, record, reflect.",
+            "Opele: pattern, message, discipline, verification.",
+            "Hand of Ifá: wisdom must be interpreted with humility."
+          ],
+          checklist:[
+            {t:"Wrote three divination questions", s:"Make each question simple, direct, and answerable."},
+            {t:"Completed one documented casting", s:"Record question, cast, interpretation, and reflection."},
+            {t:"Wrote discernment reflection", s:"Where do you confuse desire with guidance?"}
+          ]
+        },
+        {
+          num:6,
+          title:"Sekert, Sebek, and Het-Heru",
+          subtitle:"Transformation, Protection, and Harmony",
+          chips:["Depth","Protection","Beauty"],
+          principle:[
             "Power must be tempered with harmony.",
-            "Protection is both internal and external."
+            "Protection begins with inner discipline.",
+            "Beauty restores the heart and refines spiritual force."
           ],
-          practice: [
-            "Shadow observation (no shame, no excuses).",
-            "Protective boundary: one ‘no’ you will keep.",
-            "Harmony practice: restore joy, gratitude, beauty."
+          practice:[
+            "Identify one shadow pattern.",
+            "Create one protective boundary.",
+            "Restore beauty, gratitude, joy, or harmony in one area."
           ],
-          path: [
-            "B (Warriors): spiritual defense and emotional control.",
-            "A (Ilekes): devotion that does not lose balance."
+          path:[
+            "Sekert / Olokun: enter the depth without fear.",
+            "Sebek: guard the gate of instinct and reaction.",
+            "Het-Heru: let beauty refine power."
           ],
-          checklist: [
-            {t:"Named one shadow pattern clearly", s:"State it plainly—then choose a correction."},
-            {t:"Kept one boundary all week", s:"One ‘no’ that protected your alignment."},
-            {t:"Reflection written", s:"What happens when you balance power with harmony?"}
+          checklist:[
+            {t:"Named one shadow pattern", s:"Name it clearly without shame or excuse."},
+            {t:"Kept one protective boundary", s:"One clear no that protects alignment."},
+            {t:"Wrote harmony reflection", s:"How does beauty change spiritual power?"}
           ]
         },
         {
-          num: 6,
-          title: "Auset",
-          subtitle: "Initiation & Sacred Restoration",
-          chips: ["SGI: Initiation = reconstruction", "A–C emphasis"],
-          principle: [
+          num:7,
+          title:"Auset",
+          subtitle:"Initiation and Sacred Restoration",
+          chips:["Devotion","Mother Principle","Reconstruction"],
+          principle:[
             "Initiation restores what was fragmented.",
-            "Wisdom is activated through practice, not claimed by title."
+            "Devotion must become care, service, and disciplined practice.",
+            "Sacred restoration requires patience and humility."
           ],
-          practice: [
-            "Reconstruction work: rebuild one area (routine, prayer, study, discipline).",
-            "Offer gratitude to Mothers/Ancestors.",
-            "Renew your corrective vow with deeper clarity."
+          practice:[
+            "Rebuild one routine or spiritual discipline.",
+            "Offer gratitude to the Mothers and Ancestors.",
+            "Renew one vow with deeper clarity."
           ],
-          path: [
-            "A (Ilekes): radical devotion—alignment that shows in choices.",
-            "C (Hand of Ifá): readiness—humility before wisdom."
+          path:[
+            "Radical Devotion: devotion as reconstruction.",
+            "Ilekes: sacred identity through alignment.",
+            "Hand of Ifá: humility before wisdom."
           ],
-          checklist: [
-            {t:"Rebuilt one routine or discipline", s:"Show the before/after (simple notes)."},
-            {t:"Completed a gratitude offering", s:"Water, candle, prayer, or written thanks."},
-            {t:"Reflection written", s:"What does ‘initiation’ mean in your life right now?"}
+          checklist:[
+            {t:"Rebuilt one routine", s:"Prayer, study, cleansing, food, rest, or discipline."},
+            {t:"Completed gratitude offering", s:"Water, candle, prayer, song, or written thanks."},
+            {t:"Wrote Auset reflection", s:"What is being restored in you?"}
           ]
         },
         {
-          num: 7,
-          title: "Geb",
-          subtitle: "Embodiment & Earth Alignment",
-          chips: ["SGI: Live what you learn", "B–C emphasis"],
-          principle: [
+          num:8,
+          title:"Geb",
+          subtitle:"Embodiment and Earth Alignment",
+          chips:["Body","Earth","Conduct"],
+          principle:[
             "Spirit must root in matter.",
-            "Alignment is lived, not spoken."
+            "Alignment must show in the body, home, schedule, and conduct.",
+            "Daily life is the altar where truth is proven."
           ],
-          practice: [
-            "Body discipline (sleep, food, movement).",
-            "Daily conduct review (honesty + responsibility).",
-            "Grounding: nature contact or stillness with earth."
+          practice:[
+            "Choose one body discipline.",
+            "Complete a daily conduct review.",
+            "Ground through nature, breath, food, or stillness."
           ],
-          path: [
-            "B (Warriors): discipline of the body—strength with integrity.",
-            "C (Hand of Ifá): destiny expresses through daily action."
+          path:[
+            "Warriors: discipline of the body.",
+            "Ilekes: devotion lived through care.",
+            "Hand of Ifá: destiny expressed through daily action."
           ],
-          checklist: [
-            {t:"Completed 4+ days of body discipline", s:"Pick one: sleep, movement, or nutrition."},
-            {t:"Daily conduct review done 5+ times", s:"One correction per day is enough."},
-            {t:"Reflection written", s:"Where does your life prove (or disprove) your truth?"}
+          checklist:[
+            {t:"Completed body discipline", s:"Sleep, movement, food, cleansing, or rest."},
+            {t:"Completed conduct review", s:"What did your actions prove today?"},
+            {t:"Wrote embodiment reflection", s:"Where must your life prove your truth?"}
           ]
         },
         {
-          num: 8,
-          title: "Nehebkau • Uatchet • Sheps",
-          subtitle: "Vital Force, Sacred Fire & Noble Form",
-          chips: ["SGI: Noble character", "All paths unified"],
-          principle: [
+          num:9,
+          title:"Nehebkau, Uatchet, and Sheps",
+          subtitle:"Vital Force, Sacred Fire, and Noble Form",
+          chips:["Vital Force","Sacred Fire","Nobility"],
+          principle:[
             "Power rises when discipline is complete.",
-            "Nobility is a state of being—seen in speech, choices, and service."
+            "Sacred fire protects what is aligned.",
+            "Nobility is seen in speech, choices, presence, and service."
           ],
-          practice: [
-            "Nehebkau: life-force awareness (calm strength, not hype).",
-            "Uatchet (Wadjet): protective sacred fire—seal boundaries and intentions.",
-            "Sheps: refined conduct—noble speech + noble decisions."
+          practice:[
+            "Identify one life-force leak.",
+            "Seal one boundary or intention.",
+            "Practice noble speech for one full day."
           ],
-          path: [
-            "C (Hand of Ifá): wisdom expressed as responsibility.",
-            "A–B–C unified: devotion + discipline + truth."
+          path:[
+            "Nehebkau: life force restored and directed.",
+            "Uatchet / Wadjet: protective sacred fire.",
+            "Sheps: noble character as visible initiation."
           ],
-          checklist: [
-            {t:"Completed ‘protective sealing’ (Uatchet) practice", s:"Declare what you protect and why."},
-            {t:"Identified one life-force leak and corrected it", s:"Time, speech, habits, or relationships."},
-            {t:"Final integration reflection", s:"Write your 8-week personal doctrine (short + lived)." }
+          checklist:[
+            {t:"Identified one life-force leak", s:"Time, speech, habit, relationship, or distraction."},
+            {t:"Completed protective sealing practice", s:"Declare what you protect and why."},
+            {t:"Wrote noble-form reflection", s:"How will nobility appear in your conduct?"}
+          ]
+        },
+        {
+          num:10,
+          title:"Integration",
+          subtitle:"Living the Tree as SGI Practice",
+          chips:["Integration","Character","Legacy"],
+          principle:[
+            "The Tree is not only studied; it is embodied.",
+            "Divination, devotion, speech, and wisdom must become character.",
+            "The final proof is how one lives."
+          ],
+          practice:[
+            "Review all previous reflections.",
+            "Write a personal SGI doctrine of practice.",
+            "Choose three commitments to continue for thirty days."
+          ],
+          path:[
+            "A–B–C unified: Ilekes, Warriors, and Hand of Ifá.",
+            "Three SGI Pillars unified: Devotion, Words, Wisdom.",
+            "Two SGI Principles unified: Legacy and Ancestors."
+          ],
+          checklist:[
+            {t:"Reviewed all module notes", s:"Look for repeated lessons and repeated corrections."},
+            {t:"Wrote personal SGI doctrine", s:"A short statement of how you will live this work."},
+            {t:"Chose thirty-day commitments", s:"Pick three practices to continue beyond the course."}
           ]
         }
       ];
@@ -807,26 +1242,30 @@
       function loadState(){
         try{
           const raw = localStorage.getItem(STORAGE_KEY);
-          return raw ? JSON.parse(raw) : { checks: {} };
+          return raw ? JSON.parse(raw) : { checks:{} };
         }catch(e){
-          return { checks: {} };
+          return { checks:{} };
         }
       }
+
       function saveState(state){
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+
         const el = document.getElementById("saveStatus");
+
         if(el){
           el.textContent = "Saved locally";
           el.style.borderColor = "rgba(74,222,128,.35)";
           el.style.background = "rgba(74,222,128,.10)";
-          setTimeout(()=>{ el.textContent = "Saved locally"; }, 500);
         }
       }
 
       const state = loadState();
       const weeksContainer = document.getElementById("weeksContainer");
 
-      function keyFor(wi, ci){ return `w${wi}_c${ci}`; }
+      function keyFor(wi, ci){
+        return "w" + wi + "_c" + ci;
+      }
 
       function escapeHtml(str){
         return String(str)
@@ -843,9 +1282,10 @@
         weeks.forEach((w, wi)=>{
           const details = document.createElement("details");
           details.className = "week";
-          details.id = `week${w.num}`;
+          details.id = "week" + w.num;
 
           const summary = document.createElement("summary");
+
           const left = document.createElement("div");
           left.className = "wleft";
 
@@ -855,13 +1295,14 @@
 
           const ttl = document.createElement("div");
           ttl.className = "wtitle";
-          ttl.innerHTML = `<b>Week ${w.num}: ${escapeHtml(w.title)}</b><span>${escapeHtml(w.subtitle)}</span>`;
+          ttl.innerHTML = "<b>Module " + w.num + ": " + escapeHtml(w.title) + "</b><span>" + escapeHtml(w.subtitle) + "</span>";
 
           left.appendChild(badge);
           left.appendChild(ttl);
 
           const meta = document.createElement("div");
           meta.className = "wmeta";
+
           w.chips.forEach(c=>{
             const chip = document.createElement("span");
             chip.className = "chip";
@@ -871,7 +1312,7 @@
 
           const prog = document.createElement("span");
           prog.className = "progressPill";
-          prog.id = `prog_${wi}`;
+          prog.id = "prog_" + wi;
           prog.textContent = "0/0 done";
           meta.appendChild(prog);
 
@@ -889,11 +1330,15 @@
           box1.innerHTML = `
             <h3 style="margin:0 0 6px;">Principles</h3>
             <ul>${w.principle.map(x=>`<li>${escapeHtml(x)}</li>`).join("")}</ul>
+
             <div class="hr"></div>
+
             <h3 style="margin:0 0 6px;">Practices</h3>
             <ul>${w.practice.map(x=>`<li>${escapeHtml(x)}</li>`).join("")}</ul>
+
             <div class="hr"></div>
-            <h3 style="margin:0 0 6px;">A–B–C Emphasis</h3>
+
+            <h3 style="margin:0 0 6px;">SGI Path Emphasis</h3>
             <ul>${w.path.map(x=>`<li>${escapeHtml(x)}</li>`).join("")}</ul>
           `;
 
@@ -939,6 +1384,7 @@
           details.appendChild(body);
 
           weeksContainer.appendChild(details);
+
           updateWeekProgress(wi);
         });
       }
@@ -947,26 +1393,37 @@
         const w = weeks[wi];
         const total = w.checklist.length;
         let done = 0;
-        for(let ci=0; ci<total; ci++){
-          if(state.checks[keyFor(wi, ci)]) done++;
+
+        for(let ci = 0; ci < total; ci++){
+          if(state.checks[keyFor(wi, ci)]){
+            done++;
+          }
         }
-        const pill = document.getElementById(`prog_${wi}`);
-        if(pill) pill.textContent = `${done}/${total} done`;
+
+        const pill = document.getElementById("prog_" + wi);
+
+        if(pill){
+          pill.textContent = done + "/" + total + " done";
+        }
       }
 
       function updateStats(){
         const totalTasks = weeks.reduce((acc,w)=>acc + w.checklist.length, 0);
         let done = 0;
+
         weeks.forEach((w, wi)=>{
           w.checklist.forEach((_, ci)=>{
-            if(state.checks[keyFor(wi, ci)]) done++;
+            if(state.checks[keyFor(wi, ci)]){
+              done++;
+            }
           });
         });
-        const pct = totalTasks ? Math.round((done/totalTasks)*100) : 0;
+
+        const pct = totalTasks ? Math.round((done / totalTasks) * 100) : 0;
 
         document.getElementById("doneCount").textContent = String(done);
-        document.getElementById("pctDone").textContent = `${pct}%`;
-        document.getElementById("barFill").style.width = `${pct}%`;
+        document.getElementById("pctDone").textContent = pct + "%";
+        document.getElementById("barFill").style.width = pct + "%";
       }
 
       function exportProgress(){
@@ -974,56 +1431,76 @@
         let done = 0;
 
         const report = {
-          title: "SwamiG Institute — Modified Khemetian Tree of Life — 8-Week Public Course",
-          exported_at: new Date().toISOString(),
-          total_tasks: totalTasks,
-          completed_tasks: 0,
-          percent_complete: 0,
-          weeks: []
+          title:"SwamiG Institute — Modified Khemetian Tree of Life Course",
+          exported_at:new Date().toISOString(),
+          total_tasks:totalTasks,
+          completed_tasks:0,
+          percent_complete:0,
+          modules:[]
         };
 
         weeks.forEach((w, wi)=>{
           const wObj = {
-            week: w.num,
-            node: w.title,
-            subtitle: w.subtitle,
-            completed: 0,
-            total: w.checklist.length,
-            checklist: []
+            module:w.num,
+            title:w.title,
+            subtitle:w.subtitle,
+            completed:0,
+            total:w.checklist.length,
+            checklist:[]
           };
+
           w.checklist.forEach((c, ci)=>{
             const id = keyFor(wi, ci);
             const ok = !!state.checks[id];
-            if(ok){ done++; wObj.completed++; }
-            wObj.checklist.push({ task: c.t, note: c.s, done: ok });
+
+            if(ok){
+              done++;
+              wObj.completed++;
+            }
+
+            wObj.checklist.push({
+              task:c.t,
+              note:c.s,
+              done:ok
+            });
           });
-          report.weeks.push(wObj);
+
+          report.modules.push(wObj);
         });
 
         report.completed_tasks = done;
-        report.percent_complete = totalTasks ? Math.round((done/totalTasks)*100) : 0;
+        report.percent_complete = totalTasks ? Math.round((done / totalTasks) * 100) : 0;
 
         const blob = new Blob([JSON.stringify(report, null, 2)], {type:"application/json"});
         const url = URL.createObjectURL(blob);
+
         const a = document.createElement("a");
         a.href = url;
-        a.download = "sgi-tree-of-life-8week-progress.json";
+        a.download = "sgi-tree-of-life-course-progress.json";
+
         document.body.appendChild(a);
         a.click();
         a.remove();
+
         URL.revokeObjectURL(url);
       }
 
       function resetProgress(){
-        if(!confirm("Reset all checkmarks on this device?")) return;
+        if(!confirm("Reset all checkmarks on this device?")){
+          return;
+        }
+
         localStorage.removeItem(STORAGE_KEY);
         state.checks = {};
+
         renderWeeks();
         updateStats();
       }
 
       function openAll(open){
-        document.querySelectorAll("details.week").forEach(d=> d.open = open);
+        document.querySelectorAll("details.week").forEach(d=>{
+          d.open = open;
+        });
       }
 
       document.getElementById("btnExpand").addEventListener("click", ()=>openAll(true));
@@ -1035,5 +1512,6 @@
       updateStats();
     })();
   </script>
+
 </body>
 </html>
