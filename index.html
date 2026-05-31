@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Global Priesthood | 52-Week Khemetic-Ifá Tree of Life Course</title>
+
+  <style>
+    :root {
+      --purple: #351346;
+      --deep-purple: #210826;
+      --gold: #b8871f;
+      --light-gold: #f6e4aa;
+      --cream: #fff4d2;
+      --ink: #23140b;
+      --green: #166b50;
+      --red: #922a25;
+      --blue: #246b7c;
+      --shadow: rgba(47, 25, 4, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top, rgba(255, 244, 210, 0.95), rgba(232, 197, 104, 0.25)),
+        linear-gradient(135deg, #2a0c34 0%, #5a3510 50%, #1e081f 100%);
+      color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .hero {
+      border: 4px double var(--gold);
+      border-radius: 28px;
+      background:
+        linear-gradient(rgba(255, 246, 220, 0.96), rgba(255, 239, 187, 0.96)),
+        url("GlobalPriesthood1.png");
+      background-size: cover;
+      background-position: center top;
+      box-shadow: 0 25px 60px var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      backdrop-filter: blur(1.5px);
+      padding: 36px 28px 28px;
+      text-align: center;
+    }
+
+    .kicker {
+      color: var(--gold);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      margin: 8px 0 0;
+      color: var(--purple);
+      font-size: clamp(2.6rem, 7vw, 5.6rem);
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 0 #fff4c7;
+    }
+
+    .subtitle {
+      margin: 14px auto 0;
+      max-width: 850px;
+      color: var(--deep-purple);
+      font-size: clamp(1.35rem, 3vw, 2.3rem);
+      font-weight: bold;
+    }
+
+    .tagline {
+      margin: 8px auto 22px;
+      max-width: 850px;
+      color: #5e3b08;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+      margin-top: 22px;
+    }
+
+    .hero-image {
+      background: rgba(255, 252, 236, 0.7);
+      border: 2px solid var(--gold);
+      border-radius: 22px;
+      padding: 12px;
+      box-shadow: 0 14px 32px var(--shadow);
+    }
+
+    .hero-image img {
+      width: 100%;
+      display: block;
+      border-radius: 16px;
+    }
+
+    .hero-copy {
+      text-align: left;
+      background: rgba(255, 250, 231, 0.88);
+      border: 2px solid var(--gold);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 14px 32px var(--shadow);
+    }
+
+    .hero-copy h2 {
+      margin: 0 0 12px;
+      color: var(--purple);
+      font-size: 2rem;
+    }
+
+    .hero-copy p {
+      margin: 0 0 14px;
+      line-height: 1.55;
+      font-size: 1.05rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      background: var(--purple);
+      color: var(--cream);
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .section {
+      margin-top: 28px;
+      background: rgba(255, 244, 210, 0.96);
+      border: 3px double var(--gold);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 16px 36px var(--shadow);
+    }
+
+    .section h2 {
+      margin: 0 0 8px;
+      text-align: center;
+      color: var(--purple);
+      font-size: clamp(1.7rem, 4vw, 2.8rem);
+    }
+
+    .section-intro {
+      max-width: 860px;
+      margin: 0 auto 22px;
+      text-align: center;
+      line-height: 1.55;
+      font-size: 1.05rem;
+    }
+
+    .quarter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .quarter-card {
+      background: #fff9e8;
+      border: 2px solid var(--gold);
+      border-radius: 18px;
+      padding: 18px;
+      min-height: 230px;
+      box-shadow: 0 8px 18px rgba(55, 28, 0, 0.15);
+    }
+
+    .quarter-card h3 {
+      margin: 0 0 8px;
+      color: var(--purple);
+      font-size: 1.35rem;
+    }
+
+    .season {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: #fff9e8;
+      background: var(--gold);
+      font-size: 0.82rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .quarter-card ul {
+      padding-left: 18px;
+      margin: 10px 0 0;
+      line-height: 1.45;
+    }
+
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .phase-card {
+      background: #fff9e8;
+      border: 2px solid var(--gold);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .phase-card h3 {
+      margin: 0 0 8px;
+      color: var(--purple);
+      font-size: 1.45rem;
+    }
+
+    .phase-card p {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .week-card {
+      background: #fffaf0;
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(58, 31, 2, 0.13);
+    }
+
+    .week-top {
+      background: var(--purple);
+      color: var(--cream);
+      padding: 8px 12px;
+      font-weight: bold;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    .week-body {
+      padding: 13px;
+    }
+
+    .week-body h3 {
+      margin: 0 0 6px;
+      color: var(--purple);
+      font-size: 1.04rem;
+    }
+
+    .week-body p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.42;
+    }
+
+    .marker {
+      margin-top: 10px;
+      padding: 7px 9px;
+      border-radius: 10px;
+      background: rgba(184, 135, 31, 0.14);
+      border-left: 4px solid var(--gold);
+      font-size: 0.83rem;
+      font-weight: bold;
+      color: #5a3300;
+    }
+
+    .initiation-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .initiation-card {
+      background: #fff9e8;
+      border: 2px solid var(--gold);
+      border-radius: 18px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .initiation-card .symbol {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 10px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      color: var(--purple);
+      font-size: 1.6rem;
+      background: #fff2bd;
+    }
+
+    .initiation-card h3 {
+      margin: 0 0 8px;
+      color: var(--purple);
+      font-size: 1.25rem;
+    }
+
+    .initiation-card p {
+      margin: 0;
+      line-height: 1.45;
+      font-size: 0.95rem;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .principle {
+      background: #fff9e8;
+      border: 2px solid var(--gold);
+      border-radius: 18px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .principle h3 {
+      color: var(--purple);
+      margin: 0 0 8px;
+    }
+
+    .principle p {
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 34px 24px;
+      background:
+        radial-gradient(circle at top, rgba(255, 235, 165, 0.9), rgba(55, 19, 70, 0.95)),
+        var(--purple);
+      color: var(--cream);
+      border-radius: 24px;
+      border: 3px double var(--gold);
+      margin-top: 28px;
+      box-shadow: 0 16px 36px var(--shadow);
+    }
+
+    .cta h2 {
+      margin: 0 0 10px;
+      color: var(--cream);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+    }
+
+    .cta p {
+      max-width: 780px;
+      margin: 0 auto 18px;
+      line-height: 1.55;
+      font-size: 1.05rem;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--deep-purple);
+      font-weight: bold;
+      border: 2px solid var(--cream);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--cream);
+      border-color: var(--gold);
+    }
+
+    footer {
+      margin: 28px 0 8px;
+      text-align: center;
+      color: var(--cream);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .small-note {
+      font-size: 0.88rem;
+      opacity: 0.95;
+    }
+
+    @media (max-width: 1000px) {
+      .hero-grid,
+      .phase-grid,
+      .principles {
+        grid-template-columns: 1fr;
+      }
+
+      .quarter-grid,
+      .initiation-grid,
+      .roadmap {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        padding: 12px;
+      }
+
+      .hero-inner,
+      .section {
+        padding: 20px 14px;
+      }
+
+      .quarter-grid,
+      .initiation-grid,
+      .roadmap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding: 18px;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="kicker">SwamiG Institute Presents</div>
+        <h1>Global Priesthood</h1>
+        <div class="subtitle">52-Week Khemetic-Ifá Tree of Life Course Roadmap</div>
+        <div class="tagline">Know. Align. Serve. Elevate. Ancestors • Lineage • Spirit</div>
+
+        <div class="hero-grid">
+          <div class="hero-image">
+            <img src="GlobalPriesthood1.png" alt="Global Priesthood 16-Week Khemetic-Ifá Tree of Life Roadmap">
+          </div>
+
+          <div class="hero-copy">
+            <h2>From 16 Weeks to 52 Weeks</h2>
+            <p>
+              The original 16-week Global Priesthood roadmap becomes a full year of
+              spiritual formation, ritual discipline, ancestral alignment, divination
+              practice, and priestly embodiment.
+            </p>
+            <p>
+              The year is organized around the sacred seasonal gates:
+              <strong>Spring Equinox, Summer Solstice, Fall Equinox, and Winter Solstice.</strong>
+              These gates index the major initiation pathways: <strong>Ilekes, Warriors,
+              Hand of Ifá, and Priesthood Crowning.</strong>
+            </p>
+
+            <div class="pill-row">
+              <span class="pill">Khemetic Tree of Life</span>
+              <span class="pill">Ifá / Orisha Correspondence</span>
+              <span class="pill">52 Weeks</span>
+              <span class="pill">Solstice & Equinox Gates</span>
+              <span class="pill">Global Priesthood</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>The Four Seasonal Gates</h2>
+      <p class="section-intro">
+        The course year is not only academic. It is ritualized through the solar year.
+        Each seasonal gate marks a major shift in consciousness, responsibility, and
+        priestly readiness.
+      </p>
+
+      <div class="quarter-grid">
+        <article class="quarter-card">
+          <span class="season">Spring Equinox</span>
+          <h3>Gate I: Devotion & Ilekes</h3>
+          <p>
+            The initiate is oriented to sacred identity, devotion, moral character,
+            lineage, and the first visible covenant with the Orisha current.
+          </p>
+          <ul>
+            <li>Amen / Olorun</li>
+            <li>Ausar / Obatala</li>
+            <li>Auset / Yemaya</li>
+            <li>Devotional purification</li>
+          </ul>
+        </article>
+
+        <article class="quarter-card">
+          <span class="season">Summer Solstice</span>
+          <h3>Gate II: Power & Warriors</h3>
+          <p>
+            The initiate learns discipline, protection, sacred boundaries, direction,
+            action, and the difference between Ajagun training pressure and Ajogun affliction.
+          </p>
+          <ul>
+            <li>Herukhuti / Ogun</li>
+            <li>Sebek / Eshu</li>
+            <li>Geb / Ochosi</li>
+            <li>Warrior accountability</li>
+          </ul>
+        </article>
+
+        <article class="quarter-card">
+          <span class="season">Fall Equinox</span>
+          <h3>Gate III: Wisdom & Hand of Ifá</h3>
+          <p>
+            The initiate enters disciplined divination, memory, perception, sacred speech,
+            Odu orientation, and right relationship with destiny.
+          </p>
+          <ul>
+            <li>Tehuti / Orunmila</li>
+            <li>Maat / Iwa Pele</li>
+            <li>Sekert / Olokun</li>
+            <li>Divination discipline</li>
+          </ul>
+        </article>
+
+        <article class="quarter-card">
+          <span class="season">Winter Solstice</span>
+          <h3>Gate IV: Crowning & Priesthood</h3>
+          <p>
+            The initiate integrates ancestors, ritual authority, service, royal responsibility,
+            community accountability, and priestly embodiment.
+          </p>
+          <ul>
+            <li>Nekhbet / Iyami</li>
+            <li>Sheps / Egungun</li>
+            <li>Het Heru / Oshun</li>
+            <li>Global Priesthood practice</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>52-Week Structure</h2>
+      <p class="section-intro">
+        The 16 original modules remain the root image of the course. The 52-week expansion
+        gives each spiritual center time to become study, ritual, practice, community service,
+        and demonstrated embodiment.
+      </p>
+
+      <div class="phase-grid">
+        <article class="phase-card">
+          <h3>Weeks 1–13: Orientation, Devotion & Sacred Identity</h3>
+          <p>
+            Foundation in Universal Priesthood, SGI purpose, sacred framework, Amen/Olorun,
+            Ausar/Obatala, Auset/Yemaya, and devotional alignment. This phase prepares the
+            initiate for the Spring Equinox gate and the Ilekes covenant.
+          </p>
+        </article>
+
+        <article class="phase-card">
+          <h3>Weeks 14–26: Power, Protection & Warrior Discipline</h3>
+          <p>
+            Training through Herukhuti/Ogun, Sebek/Eshu, Geb/Ochosi, and the warrior function.
+            This phase culminates in Summer Solstice readiness for Warriors, vows, sacrifice,
+            boundaries, and accountability.
+          </p>
+        </article>
+
+        <article class="phase-card">
+          <h3>Weeks 27–39: Wisdom, Divination & Hand of Ifá</h3>
+          <p>
+            Study of Tehuti/Orunmila, Maat/Iwa Pele, Sekert/Olokun, sacred memory, Odu,
+            divination ethics, and right perception. This phase culminates in Fall Equinox
+            readiness for Hand of Ifá.
+          </p>
+        </article>
+
+        <article class="phase-card">
+          <h3>Weeks 40–52: Ancestors, Beauty, Crowning & Service</h3>
+          <p>
+            Integration of Het Heru/Oshun, Heru/Shango, Nekhbet/Iyami, Uatchet/Oya,
+            Sheps/Egungun, and priestly service. This phase culminates in Winter Solstice
+            priesthood crowning or crowning-readiness review.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Major Initiation Index</h2>
+      <p class="section-intro">
+        All initiations are indexed to seasonal gates and should be confirmed by divination
+        prior to commencing.
+      </p>
+
+      <div class="initiation-grid">
+        <article class="initiation-card">
+          <div class="symbol">☥</div>
+          <h3>Ilekes</h3>
+          <p>
+            Indexed to the <strong>Spring Equinox</strong>. The initiate receives devotional
+            orientation, sacred color, lineage relationship, and first covenantal alignment.
+          </p>
+        </article>
+
+        <article class="initiation-card">
+          <div class="symbol">⚔</div>
+          <h3>Warriors</h3>
+          <p>
+            Indexed to the <strong>Summer Solstice</strong>. The initiate strengthens protection,
+            action, direction, discipline, vows, and accountability.
+          </p>
+        </article>
+
+        <article class="initiation-card">
+          <div class="symbol">𓂀</div>
+          <h3>Hand of Ifá</h3>
+          <p>
+            Indexed to the <strong>Fall Equinox</strong>. The initiate deepens wisdom,
+            divination, Odu consciousness, destiny alignment, and sacred memory.
+          </p>
+        </article>
+
+        <article class="initiation-card">
+          <div class="symbol">♛</div>
+          <h3>Priesthood Crowning</h3>
+          <p>
+            Indexed to the <strong>Winter Solstice</strong>. The initiate enters full
+            responsibility, royal service, ancestral accountability, and priestly embodiment.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>52-Week Course Roadmap</h2>
+      <p class="section-intro">
+        Each week includes teaching, reflection, ritual practice, journaling, divination
+        orientation, and embodied service.
+      </p>
+
+      <div class="roadmap">
+
+        <article class="week-card"><div class="week-top">Week 1</div><div class="week-body"><h3>Orientation & Sacred Framework</h3><p>Universal Priesthood, SGI purpose, lineage, course structure, and the vow to become useful to Spirit.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 2</div><div class="week-body"><h3>Amen / Olorun</h3><p>Divine source, cosmic unity, spiritual origin, and alignment with the unseen source.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 3</div><div class="week-body"><h3>Amen Practice</h3><p>Daily silence, breath, sunrise prayer, and journaling the difference between ego voice and divine source.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 4</div><div class="week-body"><h3>Ausar / Obatala</h3><p>Purity, moral authority, clarity, sacred order, coolness, and elevated consciousness.</p></div></article>
+
+        <article class="week-card"><div class="week-top">Week 5</div><div class="week-body"><h3>Obatala Discipline</h3><p>White cloth practice, purity of speech, clarity of thought, and cleansing of confusion.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 6</div><div class="week-body"><h3>Auset / Yemaya</h3><p>Devotion, nurture, receptivity, intuition, emotional waters, and sacred motherhood.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 7</div><div class="week-body"><h3>Devotional Waters</h3><p>Ancestor water, maternal blessing, emotional cleansing, and learning to receive without weakness.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 8</div><div class="week-body"><h3>Het Heru / Oshun</h3><p>Beauty, attraction, refinement, sweetness, relational harmony, and the spiritual function of pleasure.</p></div></article>
+
+        <article class="week-card"><div class="week-top">Week 9</div><div class="week-body"><h3>Sweetness & Character</h3><p>Honeyed speech, relational repair, beauty as medicine, and refinement of desire.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 10</div><div class="week-body"><h3>Maat / Iwa Pele</h3><p>Truth, balance, order, justice, good character, and the ethical heart of priesthood.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 11</div><div class="week-body"><h3>Iwa Review</h3><p>Examine speech, conduct, promises, obligations, and the character required to carry power.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 12</div><div class="week-body"><h3>Ilekes Preparation</h3><p>Color, devotion, lineage, altar discipline, offerings, and readiness for sacred covenant.</p></div></article>
+
+        <article class="week-card">
+          <div class="week-top">Week 13</div>
+          <div class="week-body">
+            <h3>Spring Equinox Gate</h3>
+            <p>Ilekes review, divination confirmation, devotional accountability, and recommitment to sacred identity.</p>
+            <div class="marker">Seasonal Gate: Ilekes / Devotion</div>
+          </div>
+        </article>
+
+        <article class="week-card"><div class="week-top">Week 14</div><div class="week-body"><h3>Herukhuti / Ogun</h3><p>Action, power, courage, strategy, iron discipline, and constructive force.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 15</div><div class="week-body"><h3>Ogun Practice</h3><p>Tools, labor, responsibility, completion, and removing laziness from the path.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 16</div><div class="week-body"><h3>Sebek / Eshu</h3><p>Crossroads, decision, communication, transformation, movement, and spiritual negotiation.</p></div></article>
+
+        <article class="week-card"><div class="week-top">Week 17</div><div class="week-body"><h3>Crossroads Training</h3><p>Learning timing, offerings, choice, consequence, trickster wisdom, and messages at the threshold.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 18</div><div class="week-body"><h3>Geb / Ochosi</h3><p>Grounding, earth awareness, precision, focus, tracking, justice, and practical direction.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 19</div><div class="week-body"><h3>Ochosi Practice</h3><p>Target, aim, truth-finding, discipline of attention, and ethical use of spiritual direction.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 20</div><div class="week-body"><h3>Heru / Shango</h3><p>Leadership, fire, confidence, righteous authority, thunder, and embodied command.</p></div></article>
+
+        <article class="week-card"><div class="week-top">Week 21</div><div class="week-body"><h3>Authority & Accountability</h3><p>Royal speech, masculine and feminine authority, moral courage, and avoiding misuse of fire.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 22</div><div class="week-body"><h3>Ajagun vs Ajogun</h3><p>Distinguish training pressure from affliction, and learn how Warrior practice responds to each.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 23</div><div class="week-body"><h3>Vows, Sacrifice & Boundaries</h3><p>What must be protected, what must be offered, and what must be removed from the path.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 24</div><div class="week-body"><h3>Warrior Readiness</h3><p>Discipline review, altar conduct, spiritual protection, and personal accountability assessment.</p></div></article>
+
+        <article class="week-card"><div class="week-top">Week 25</div><div class="week-body"><h3>Warrior Service</h3><p>Apply Warrior principles through service, protection, truth-telling, and responsible leadership.</p></div></article>
+
+        <article class="week-card">
+          <div class="week-top">Week 26</div>
+          <div class="week-body">
+            <h3>Summer Solstice Gate</h3>
+            <p>Warriors review, divination confirmation, vows, accountability, and renewed spiritual protection.</p>
+            <div class="marker">Seasonal Gate: Warriors / Power</div>
+          </div>
+        </article>
+
+        <article class="week-card"><div class="week-top">Week 27</div><div class="week-body"><h3>Tehuti / Orunmila</h3><p>Wisdom, divination, right perception, memory, disciplined thought, and sacred intelligence.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 28</div><div class="week-body"><h3>Divination Ethics</h3><p>Who may ask, what may be asked, how messages are confirmed, and why humility protects the oracle.</p></div></article>
+
+        <article class="week-card"><div class="week-top">Week 29</div><div class="week-body"><h3>Sekert / Olokun</h3><p>Mystery, deep knowledge, hidden power, inner stillness, wealth of the depths, and sacred speech.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 30</div><div class="week-body"><h3>Depth Practice</h3><p>Silence, dream record, oceanic consciousness, emotional depth, and restraint of spiritual power.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 31</div><div class="week-body"><h3>Maat as Oracle Foundation</h3><p>No divination without truth, no interpretation without character, no power without balance.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 32</div><div class="week-body"><h3>Odu Orientation</h3><p>Introduction to Odu as sacred intelligence, living scripture, and ancestral pattern recognition.</p></div></article>
+
+        <article class="week-card"><div class="week-top">Week 33</div><div class="week-body"><h3>Four Cowrie Foundations</h3><p>Alafia, Etawa, Ejife, Okana, Oyeku, and the discipline of not forcing the oracle.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 34</div><div class="week-body"><h3>Obi & Orisha Communication</h3><p>Yes/no orientation, opening ritual windows, and devotional listening through simple oracle forms.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 35</div><div class="week-body"><h3>Opele / Merindilogun Overview</h3><p>Comparing divination technologies and determining the proper instrument for the initiate.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 36</div><div class="week-body"><h3>Hand of Ifá Preparation</h3><p>Destiny, Ori, Orunmila, discipline, humility, and the difference between curiosity and calling.</p></div></article>
+
+        <article class="week-card"><div class="week-top">Week 37</div><div class="week-body"><h3>Memory & Recitation</h3><p>Learning, retaining, and respectfully transmitting sacred knowledge without distortion.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 38</div><div class="week-body"><h3>Divination Practicum</h3><p>Structured practice, observation, journaling, elder review, and confirmation protocols.</p></div></article>
+
+        <article class="week-card">
+          <div class="week-top">Week 39</div>
+          <div class="week-body">
+            <h3>Fall Equinox Gate</h3>
+            <p>Hand of Ifá review, divination confirmation, wisdom vow, and alignment with destiny.</p>
+            <div class="marker">Seasonal Gate: Hand of Ifá / Wisdom</div>
+          </div>
+        </article>
+
+        <article class="week-card"><div class="week-top">Week 40</div><div class="week-body"><h3>Nekhbet / Iyami</h3><p>Protection, spiritual depth, elder power, discernment, guardianship, and reverence for hidden authority.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 41</div><div class="week-body"><h3>Iyami Protocol</h3><p>Respect, restraint, maternal power, offerings, taboo, and the ethics of approaching depth.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 42</div><div class="week-body"><h3>Uatchet / Oya</h3><p>Change, wind, threshold work, ancestral motion, storms, transformation, and renewal.</p></div></article>
+
+        <article class="week-card"><div class="week-top">Week 43</div><div class="week-body"><h3>Threshold Practice</h3><p>Release, cemetery respect, endings, beginnings, and how to move without breaking sacred order.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 44</div><div class="week-body"><h3>Sheps / Egungun</h3><p>Ancestors, lineage consciousness, ritual memory, inheritance, and standing on enlightened shoulders.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 45</div><div class="week-body"><h3>Ancestor Service</h3><p>Ancestor altar, names, stories, offerings, responsibility, and healing the line through conduct.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 46</div><div class="week-body"><h3>Royal Legacy</h3><p>What it means to extend royal legacy through humility, service, discipline, and public usefulness.</p></div></article>
+
+        <article class="week-card"><div class="week-top">Week 47</div><div class="week-body"><h3>Priestly Speech</h3><p>Blessing, correction, counsel, silence, prayer, and the spiritual consequences of the spoken word.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 48</div><div class="week-body"><h3>Ritual Responsibility</h3><p>Preparation, cleanliness, offerings, timekeeping, divination confirmation, and ritual closure.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 49</div><div class="week-body"><h3>Community Service</h3><p>Priesthood as service, not status. The initiate demonstrates usefulness to family, temple, and community.</p></div></article>
+        <article class="week-card"><div class="week-top">Week 50</div><div class="week-body"><h3>Universal Priesthood Practice</h3><p>Synthesis of the full tree, sacred service, ritual accountability, and spiritual embodiment.</p></div></article>
+
+        <article class="week-card"><div class="week-top">Week 51</div><div class="week-body"><h3>Crowning Preparation</h3><p>Review of the year, divination confirmation, elder counsel, final service act, and priestly readiness.</p></div></article>
+
+        <article class="week-card">
+          <div class="week-top">Week 52</div>
+          <div class="week-body">
+            <h3>Winter Solstice Gate</h3>
+            <p>Priesthood crowning or crowning-readiness review. The year closes with responsibility, gratitude, and sacred embodiment.</p>
+            <div class="marker">Seasonal Gate: Priesthood Crowning</div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>SGI Pillars & Guiding Principles</h2>
+      <p class="section-intro">
+        The year is governed by devotion, wisdom, lineage, character, and useful service.
+      </p>
+
+      <div class="principles">
+        <article class="principle">
+          <h3>Radical Devotion</h3>
+          <p>Devotion that reforms conduct, purifies intention, and makes the initiate dependable before Spirit.</p>
+        </article>
+
+        <article class="principle">
+          <h3>Infinite Wisdom</h3>
+          <p>Wisdom rooted in Tehuti, Orunmila, memory, divination, discipline, and humility before the unseen.</p>
+        </article>
+
+        <article class="principle">
+          <h3>Royal Service</h3>
+          <p>Extending royal legacy by standing on the shoulders of enlightened ancestors and serving the living community.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Know. Align. Serve. Elevate.</h2>
+      <p>
+        This 52-week Global Priesthood course prepares the initiate to walk the Khemetic-Ifá
+        Tree of Life through study, devotion, divination, seasonal initiation gates, and
+        priestly service.
+      </p>
+
+      <div class="button-row">
+        <a class="button" href="mailto:baba@SwamiGInstitute.com?subject=Global%20Priesthood%2052-Week%20Course%20Inquiry">Request Enrollment Information</a>
+        <a class="button secondary" href="#top">Return to Top</a>
+      </div>
+    </section>
+
+    <footer>
+      <strong>© SwamiG Institute 2026</strong><br>
+      Global Priesthood • Khemetic-Ifá Tree of Life • Ancestors • Lineage • Spirit<br>
+      <span class="small-note">
+        All initiations should be confirmed by divination prior to commencing.
+      </span>
+    </footer>
+
+  </main>
+</body>
+</html>
