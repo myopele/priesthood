@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SwamiG Institute &ndash; Anke&ndash;Karade Lineage</title>
+  <style>
+    :root{
+      --bg:#0b0b0f; --fg:#f3f3f3; --muted:#cfcfcf; --accent:#ffd369;
+      --panel:#151518; --sep:#2a2a2f;
+    }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:400 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+    }
+    .wrap{max-width:900px;margin:auto;padding:32px 18px 56px}
+    header{text-align:center;margin-bottom:28px}
+    header img{max-width:140px;height:auto;border-radius:50%;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+    h1{margin:.5em 0 0;font-size:clamp(24px,4vw,36px)}
+    .motto{font-style:italic;color:var(--muted)}
+    .tag{opacity:.9;margin-top:4px}
+    .panel{background:var(--panel);border-radius:18px;padding:24px;box-shadow:0 6px 18px rgba(0,0,0,.45)}
+    h2{margin:0 0 12px;text-align:center;color:var(--accent);font-weight:700}
+    .lineage{display:grid;gap:16px;margin-top:12px}
+    @media (min-width:720px){.lineage{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    
+    .simple{text-align:center;padding:8px 4px}
+    .simple .name{font-weight:700;display:block}
+    .simple .region{color:var(--muted);font-size:0.9em}
+    .group{display:flex;flex-direction:column;gap:12px}
+    
+    .card{background:var(--panel);border-radius:12px;padding:14px 16px;text-align:center}
+    .card img{width:100%;max-width:140px;height:auto;border-radius:10px;margin:0 auto 10px;display:block}
+    .card .name{font-weight:700}
+    .card .region{color:var(--muted)}
+    
+    .iya img{margin-bottom:20px}
+    .iya{margin-bottom:30px}
+    
+    .koleoso{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;text-align:left}
+    .koleoso img{width:120px;margin:0}
+    
+    .swamig{text-align:center}
+    .swamig img{margin-bottom:14px}
+    
+    .separator{
+      grid-column:1 / -1;
+      height:1px;
+      background:var(--sep);
+      margin:20px 0;
+      opacity:0.4;
+    }
+    .separator.bottom{
+      height:0.5px;
+      margin:14px 0;
+      opacity:0.2;
+    }
+    
+    /* Footer */
+    footer{
+      margin-top:30px;
+      text-align:center;
+      font-size:0.7rem;
+      letter-spacing:0.4px;
+    }
+    footer .divider{
+      width:60%;
+      max-width:400px;
+      height:1px;
+      background:rgba(255,255,255,0.08);
+      margin:0 auto 10px;
+    }
+    footer .governed{
+      color:rgba(255,255,255,0.15);
+    }
+    footer .copyright{
+      margin-top:6px;
+      font-size:0.75rem;
+      color:rgba(255,255,255,0.4);
+    }
+    footer .copyright a{
+      color:inherit;
+      text-decoration:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="SwamiG.gif" alt="SwamiG Institute Logo" />
+      <h1>SwamiG Institute</h1>
+      <div class="motto">&ldquo;'Extending Royal Legacy' &ndash; ' on the shoulders of enlightened ancestors'&rdquo;</div>
+      <div class="tag">Heaven is home, earth is its market place</div>
+    </header>
+
+    <section class="panel">
+      <h2>SwamiG Anke&ndash;Karade Lineage</h2>
+      <div class="lineage">
+
+        <!-- Upper block -->
+        <div class="group">
+          <div class="simple">
+            <span class="name">Awise Wande Abimbola &amp; Iya Besie Abimbola</span>
+            <span class="region">Nigeria &ndash; West Africa</span>
+          </div>
+          <div class="simple">
+            <span class="name">Iya Omoladun Anke</span>
+            <span class="region">Nigeria &ndash; West Africa</span>
+          </div>
+          <div class="simple">
+            <span class="name">Baba Ogunyeye Akangbe</span>
+            <span class="region">Nigeria &ndash; West Africa</span>
+          </div>
+        </div>
+
+        <!-- Iya Osunnike -->
+        <div class="card iya">
+          <img src="https://static.wixstatic.com/media/df3e20_73ffbf3ba54640dfbd37dad85df1593f~mv2.jpg/v1/fill/w_127,h_132,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/df3e20_73ffbf3ba54640dfbd37dad85df1593f~mv2.jpg" 
+               alt="Iya Osunnike Anke" loading="lazy" />
+          <div class="name">Iya Osunnike Anke</div>
+          <div class="region">United States</div>
+        </div>
+
+        <div class="separator"></div>
+
+        <!-- Middle block -->
+        <div class="group">
+          <div class="simple">
+            <span class="name">Yaagbe Orisa Keye Agbede</span>
+            <span class="region">Nigeria &ndash; West Africa</span>
+          </div>
+          <div class="simple">
+            <span class="name">Chief Araba Malomo</span>
+            <span class="region">Nigeria &ndash; West Africa</span>
+          </div>
+          <div class="simple">
+            <span class="name">Baba Oloye Ifa Karade</span>
+            <span class="region">US</span>
+          </div>
+        </div>
+
+        <!-- Baba Koleoso -->
+        <div class="card koleoso">
+          <img src="https://static.wixstatic.com/media/df3e20_0e271d77c02d4929b89c0b296af85b3f~mv2.jpg/v1/fill/w_261,h_363,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Priest%20King%20Koleoso.jpg" 
+               alt="Priest King Koleoso Karade" loading="lazy" />
+          <div>
+            <div class="name">Baba Koleoso Karade</div>
+            <div class="region">US</div>
+          </div>
+        </div>
+
+        <div class="separator bottom"></div>
+
+        <!-- Bottom block -->
+        <div class="card swamig" style="grid-column:1 / -1">
+          <img src="http://myoracle.itgo.com/BeardedSwamiG.gif" 
+               alt="Awo Fasuuruate Anke-Karade — SwamiG" loading="lazy" />
+          <div class="name">Awo Fasuuruate Anke-Karade &ndash; &ldquo;SwamiG&rdquo;</div>
+          <div class="region">US</div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <div class="divider"></div>
+      <div class="governed">Governed by [Herukhuti(+)/Het Heru(-)] / [Ogbe/Okanran(+) Sebek(Ogbe)]</div>
+      <div class="copyright">
+        &copy; 2025 SwamiG Institute &middot; 
+        <a href="http://SwamiGInstitute.com">SwamiGInstitute.com</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
